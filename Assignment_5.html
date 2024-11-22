@@ -1,0 +1,1690 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.56">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Assignment 5</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="Assignment_5_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Assignment_5_files/libs/quarto-html/quarto.js"></script>
+<script src="Assignment_5_files/libs/quarto-html/popper.min.js"></script>
+<script src="Assignment_5_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Assignment_5_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Assignment_5_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Assignment_5_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Assignment_5_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Assignment_5_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Assignment_5_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="Assignment_5_files/libs/kePrint-0.0.1/kePrint.js"></script>
+
+<link href="Assignment_5_files/libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Assignment 5</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introdukjson" class="level2">
+<h2 class="anchored" data-anchor-id="introdukjson">introdukjson</h2>
+<p>Styrketrening er ein essensiell komponent i treningsprogrammer for å forbetre fysisk styrke, muskelmasse og generell helse (<span class="citation" data-cites="Wisnes">@Wisnes</span> et al., 2010, s. 185). Ved å trene styrke kan både nybegynnere og erfarne utøvere oppnå betydelege forbetringer i muskelfunksjon og kroppsamansetning (<span class="citation" data-cites="Raastad">@Raastad</span> et al., 2010, s. 37). Dette bidreg til ei økt prestasjonsevne og redusert risiko for fleire potensielle helseproblem (<span class="citation" data-cites="Westcott">@Westcott</span>, 2012). Menneskekroppen har ein unik egenskap til å adaptere seg til belastning fra omgivnaden. Skjelettmusklaturen tilpassar seg stimuli som blir påført musklatruen (<span class="citation" data-cites="kreamer">@kreamer</span>, 2005. <span class="citation" data-cites="Raastad">@Raastad</span> et al., 2010, s. 37). Innan feltet for styrketrening, er det fleire faktorer som bestemmer tilpassningene som forekommer i musklaturen. Treningsvolum, intensitet og frekvens er nokon av desse faktorane og har direkte innvirkning på muskulærstyrke og fettfri muskelmasse (<span class="citation" data-cites="Raastad">@Raastad</span> et al., 2010, s. 17). Eit lavt volum av dette vil gi gode adaptasjoner i skjelettmusklaturen der eit optimalisert volum ofte kan føre til større muskulær tilpasning og øking i styrke (<span class="citation" data-cites="Schoenfeld">@Schoenfeld</span>, 2017. <span class="citation" data-cites="Grgic">@Grgic</span>, 2018. <span class="citation" data-cites="Ruple">@Ruple</span> et al.&nbsp;2023).</p>
+<p>Treningsvolum refererer til den totale mengden arbeid utført i løpet av ei treningsøkt eller over ein lengre treningsperiode, og kan måles i antall sett og repetisjoner multiplisert med belastninga (<span class="citation" data-cites="Raastad">@Raastad</span> et al., 2010, s. 17). Dette er ein av dei mest sentrale faktorane innan styrketrening, ettersom det totale volumet kan påverke korleis kroppen tilpassar seg treningen, med tanke på muskelvekst og styrkeutvikling (<span class="citation" data-cites="Burd">@Burd</span> et al.&nbsp;2010). Muskelmasse, omfatter feittfri kroppsmasse, inkludert musklaturen, og er eit viktig mål for å vurdere effekten av trening på kroppsammensetningen. Muskelstyrke beskriv derimot muskelens evne til å generere kraft, og representerer ei anna kritisk faktor for fysisk ytelse og funksjonsevne.</p>
+<p>Ei forståing av korleis treningsvolum påverker treningsresultata for å optimalisere treningsprogrammer er viktig å forstå for både forskarar, trenarar og utøvarar fra forskjellige idretter. Ved å kartlegge effekten av treningsvolum kan me tilpasse treningsplaner til individuelle behov og målsetninger, og potensielt identifisere spesifikke rettningslinjer som maksimerer styrkeutvikling og muskelvekst.</p>
+<p>Denne studien har som mål å undersøke korleis ulike nivå av treningsvolum påverker auking i muskelmasse og muskelstyrke hos deltakerne. Spesifikt søker me å besvare følgende forskningsspørsmål: påverker ei auke i treningsvolum aukinga i muskelmasse og muskelstyrke? Dette spørsmålet gjev grunnlag for å vurdere om eit større treningsvolum her ein betydeleg effekt på treningsresultata samanlikna med eit mindre volum, og gjev innsikt i korleis ein kan tilpasse treningsopplegg basert på individuelle treningsmål og fysiologiske forutsetningar.</p>
+</section>
+<section id="metode" class="level2">
+<h2 class="anchored" data-anchor-id="metode">Metode</h2>
+<section id="deltakarar" class="level3">
+<h3 class="anchored" data-anchor-id="deltakarar">Deltakarar</h3>
+<p>i denne studien blei 34 friske ikkje-røykande, utrente deltakarar (16 menn, 23,6 ± 4,1 år; 18 kvinner, 22,0 ± 1,3 år) rekruttert for å undersøke effekten av ulikt treningsvolum på muskelmasse og styrke over ein periode på 12 veker. Deltakarane har tidligare idrettsbakgrunn fra forskjellige idretter og måtte ha gjennomført minst 1 styrkeøkt i veka dei siste 12 månadane for å kunne delta i prosjektet. Sju deltakarar blei eksludert fra data analysen grunna at dei ikkje detlok på over 85% av treningsøktene.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="cxzrydlvqo" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#cxzrydlvqo table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#cxzrydlvqo thead, #cxzrydlvqo tbody, #cxzrydlvqo tfoot, #cxzrydlvqo tr, #cxzrydlvqo td, #cxzrydlvqo th {
+  border-style: none;
+}
+
+#cxzrydlvqo p {
+  margin: 0;
+  padding: 0;
+}
+
+#cxzrydlvqo .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#cxzrydlvqo .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#cxzrydlvqo .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#cxzrydlvqo .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#cxzrydlvqo .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#cxzrydlvqo .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#cxzrydlvqo .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#cxzrydlvqo .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#cxzrydlvqo .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#cxzrydlvqo .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#cxzrydlvqo .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#cxzrydlvqo .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#cxzrydlvqo .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#cxzrydlvqo .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#cxzrydlvqo .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#cxzrydlvqo .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#cxzrydlvqo .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#cxzrydlvqo .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#cxzrydlvqo .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#cxzrydlvqo .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#cxzrydlvqo .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#cxzrydlvqo .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#cxzrydlvqo .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#cxzrydlvqo .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#cxzrydlvqo .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#cxzrydlvqo .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#cxzrydlvqo .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#cxzrydlvqo .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#cxzrydlvqo .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#cxzrydlvqo .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#cxzrydlvqo .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#cxzrydlvqo .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#cxzrydlvqo .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#cxzrydlvqo .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#cxzrydlvqo .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#cxzrydlvqo .gt_left {
+  text-align: left;
+}
+
+#cxzrydlvqo .gt_center {
+  text-align: center;
+}
+
+#cxzrydlvqo .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#cxzrydlvqo .gt_font_normal {
+  font-weight: normal;
+}
+
+#cxzrydlvqo .gt_font_bold {
+  font-weight: bold;
+}
+
+#cxzrydlvqo .gt_font_italic {
+  font-style: italic;
+}
+
+#cxzrydlvqo .gt_super {
+  font-size: 65%;
+}
+
+#cxzrydlvqo .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#cxzrydlvqo .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#cxzrydlvqo .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#cxzrydlvqo .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#cxzrydlvqo .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#cxzrydlvqo .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#cxzrydlvqo .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#cxzrydlvqo .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#cxzrydlvqo div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<caption>Beskrivelse av deltakere</caption>
+<thead>
+<tr class="header gt_col_headings">
+<th id="Kjønn" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Kjønn</th>
+<th id="Alder" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Alder</th>
+<th id="Høgde (cm)" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Høgde (cm)</th>
+<th id="Vekt (kg)" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Vekt (kg)</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="sex">Kvinne n =18</td>
+<td class="gt_row gt_right" headers="age">22(1.3)</td>
+<td class="gt_row gt_right" headers="height">167.7(6.9)</td>
+<td class="gt_row gt_right" headers="weight">64.4(10.4)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="sex">Mann n =16</td>
+<td class="gt_row gt_right" headers="age">23.6(4.1)</td>
+<td class="gt_row gt_right" headers="height">182.9(5.9)</td>
+<td class="gt_row gt_right" headers="weight">75.8(10.7)</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+<p>Tabell 1</p>
+</div>
+</div>
+<p>Deltakarane skulle gjennomgå ein treningsintervensjon gjennom 12 veker. Her blei treninga gjennomført både på overkropp og bein. Treninga blei gjennomført i eit kontralateralt design for å oppnå ei differensiering. Kvar deltaker utførte moderat (Multiple) treningsvolum (3 sett per øvelse) på eit tilfeldig bein og lavt (single) treningsvolum (1 sett per øvelse) på det andre beinet. Deltakarane gjennomførte treningsøktene 2-3 gonger per veke. Før oppstart av studien og etter 12 uker blei muskelstyrke og muskelareal målt for å evaluere treningsresponsen.Muskelbiopsier fra muskelstyrke og muskelareal målt for å evaluere treningsresponsen. Muskelbiopsier fra Vastus lateralis blei også tatt både ved baseline og etter den femte treningsøkten (veke 2), samt ved slutten av studien.</p>
+</section>
+<section id="treningsprotokoll" class="level3">
+<h3 class="anchored" data-anchor-id="treningsprotokoll">Treningsprotokoll</h3>
+<p>Oppvarmingen starta med 5min på ergometersykkel, etterfulgt av 10 repetisjoner av kvar kroppsvektsøvelse (armhevinger, sit-ups, rygghev og knebøy) og til slutt 10 repetisjoner med 50% av 1RM for kvar styrkeøvelse (bilateral-beinpress, leg curl, lårspark, bilateral-benkpress, skulderpress eller sittende roing)</p>
+<p>Sjølve styrketreninga besto av øvelser for bein og overkropp. Beinøktene inkluderte bilateral-beinpress, lårcurl og lårspark. Avhengig av kva gruppe deltakarane blei tildelt, utførte dei øvelsane med eit eller tre sett. Pausene varte mellom 90-120 sekunder. Det beinet som kun hadde eit sett gjennomførte det mellom det andre og tredje sette på det andre beinet.</p>
+<p>Etter beinøvelsane fortsatte deltakarane med to sett av bilateral benkpress, nedtrekk og enten skulderpress eller sitjande roing, der kvar av desse to siste styrkeøvelsane varierte fra økt til økt. Etter ni treningøkter blei det lagt inn ei vekentleg lavintensitetsøkt, der like mange repetisjoner blei gjennomført, men kun med 90% av belastninga fra forrige økt. Etter denne litt lettare økta var det kun satt opp til 24 timer kvile, medan etter dei tyngre øktene var det satt opp 48 timers kvile.treningsintensiteten auka gradvis gkennom dei 12 vekene. dei 2 vørste vekene var det 10RM, etterfulgt av tre veker med 8RM og 7RM dei siste sju vekene.</p>
+<div class="cell" data-tbl-cap="Studieoversikt med treningsfrekvens og RM">
+<div class="cell-output-display">
+<div id="fig-trening" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-trening-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="Assignment_5_files/figure-html/fig-trening-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-trening-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Figur med oversikt over treningsfrekvens og RM per veke
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>For å bidra til restutisjon, fekk deltakarane ei standardisert restutisjonsdrikk etter kvar styrketreningsøkt. denne drikken besto av 1.2 g/kg karbohydrater, 0.15 g/kg protein og 0.5 g/kg feitt. Det blei lagt opp til at deltakarane kunne gjennomføre øktene på eigenhand, gitt at dei førte detaljerte loggbøker for å følge opp progresjon og innsats. Desse øktene blei evaluert av forskarane sammen med deltakarane i etterkant. Dette var også eit tiltak for å auke sansynlegheite for at deltakarane fortsatte med trening etter dei var ferdig med forskningsprosjektet.</p>
+</section>
+<section id="måling-av-styrke-i-underekstremitetene" class="level3">
+<h3 class="anchored" data-anchor-id="måling-av-styrke-i-underekstremitetene">Måling av styrke i underekstremitetene</h3>
+<p>Målingene for isokinetisk og isometrisk styrke i kneekstensorene blei målt i dynamometer (Cybex 6000) som deltakarane blei plasserte i. Her vart sittestillinga sikre slik at kneleddet var i linje med rotasjonsaksen til dynamometeret. Den isokinetiske styrken blei vurdert ved tre forskjellige hastigheiter (60°, 120° og 240° per sekund). I forkant av testen gjennomførte deltakarane ein oppvarming som inkluderte tre submaksimale forsøk på kvar hastigheit. Deretter fek dei to forsøk på 60° per sekund, og tre forsøk på 120° og 240° per sekund, utført med lik pause mellom kvart sett. Den høgaste målte verdien på kvar hastigheit vart nytta i analysenene. Etter dei isokinetiske målingane blei isometrisk maksimal frivillig kontraksjon (MVC) testa ved ein knevinkel på 30°. Deltakarane blei instruert om å presse med maksimal kraft i 5 sekund, og fekk to forsøk med 30 sekunder kvile mellom. Her blei kun den høgaste verdien nytta i analyse.</p>
+<p>Muskelstyrken i underekstremitetene blei målt gjennom dynamisk styrketesting, spesifikt ved bruk av ein repetisjon maksimum (1RM), både ved starten av perionden og etter 12 veker. Denne metoden gav eit mål på maksimal styrkeendring i dei trente muskelgruppene, som er ein respons på ulikt treningsvolum. Vidare blei musklaturens tverrsnittsareal (CSA) vurdert gjennom bildediagnostikk for å registrere endringar i muskelmasse. Målingane blei gjort både ved baseline og etter den 12 veker lange treningsperioden, noko som gjorde det muleg å evaluere muskelhypertrofi som respons på både moderat og lavt treningsvolum.</p>
+</section>
+<section id="måling-av-beinmusklaturens-tverrsnitt" class="level3">
+<h3 class="anchored" data-anchor-id="måling-av-beinmusklaturens-tverrsnitt">Måling av beinmusklaturens tverrsnitt</h3>
+<p>Tverrsnittsarealet (CSA) for kneekstensorene, inkludert vastus lateralis, vastus medialis, vastus intermedius og rectus femoris. Desse blei målt med magnetisk resonanstomografi (MRI). Bildene blei analysert blinda av samme forsker for å minimere bias, og CSA blei satt på samme stad på låret både før og etter intervensjonen. Fire påfølgjande bileter med 5 mm tjukkelse og 10 mm mellomrom blei analysert for kvar deltakar. Kroppsamansetningen blei evaluert ved bruk av DXA-skanning, der både feittmasse og feittfri masse blei målt før og etter intervensjonen. For å standardisere målingane blei deltakarane bedt om å faste to timer og unngå fysisk aktivitet i 48 før kvar måling. Dette detaljnivået i gjennomføringen av testene og målingene sikret presisjon i dataene, slik at resultatane kunne vurderes påliteleg i vidare analyser.</p>
+</section>
+</section>
+<section id="statistikk-og-dataanalyse" class="level2">
+<h2 class="anchored" data-anchor-id="statistikk-og-dataanalyse">Statistikk og dataanalyse</h2>
+<p>Før eg utførte statistiske analyser, bearbeidet eg dataene for å sikre at dei var klare for analyse. Deltakere som ikkje oppfylte kriteria for analyse blei filtrert ut, manglande verdier blei fjerna, og koda om variabler som tid (pre og post) og treningsvolum (single og multiple sets) til faktorer. For enkelte analyser endra eg dataene frå lang til brei format, slik at endringer mellom pre og post kunne bli berekna.</p>
+<p>Gjennomsnitt og standardavvik (SD) blei nytta for å beskrive dataene, og t-tester for å sammenligne gruppene og tidspunktene. Resultata vises med gjennomsnittlege forskjeller og 95 % konfidensintervaller (CI) for å vise presisjonen, og p-verdier for å vurdere statistisk signifikans. Ef laga også figurer som linjediagram og boksplot for å visualisere endringer og fordelingen i gruppene multiple og single.</p>
+</section>
+<section id="resultater" class="level2">
+<h2 class="anchored" data-anchor-id="resultater">Resultater</h2>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 2
+  time  t_test_p_value
+  &lt;fct&gt;          &lt;dbl&gt;
+1 post           0.825
+2 pre            0.986</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Assignment_5_files/figure-html/muskelmasse%20forbedring-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption>Figur 3. Oversikt over total endringer i fettfri muskelmasse fra pre til post</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Assignment_5_files/figure-html/figur%20lean%20mass%202-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption>Figur 4. Her ser me fordelingen av muskelmasse for single og multiple gruppene, pre og post treningsintervensjonen. Det er ingen signifikant forskjeller i muskelmasse mellom gruppene i pre (p = 0.986) eller post (0.825). Begge gruppene hadde en signifikant auke i muskelmasse i post (p = 0.05, t = -1.96).</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>`summarise()` has grouped output by 'time', 'sets'. You can override using the
+`.groups` argument.
+`summarise()` has grouped output by 'time', 'sets'. You can override using the
+`.groups` argument.</code></pre>
+</div>
+<div id="tbl-des-styrke" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-des-styrke-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Deskriptiv data for styrke pre og post
+</figcaption>
+<div aria-describedby="tbl-des-styrke-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<div id="hphsyqpuai" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#hphsyqpuai table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#hphsyqpuai thead, #hphsyqpuai tbody, #hphsyqpuai tfoot, #hphsyqpuai tr, #hphsyqpuai td, #hphsyqpuai th {
+  border-style: none;
+}
+
+#hphsyqpuai p {
+  margin: 0;
+  padding: 0;
+}
+
+#hphsyqpuai .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: small;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: 100%;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#hphsyqpuai .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#hphsyqpuai .gt_title {
+  color: #333333;
+  font-size: medium;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#hphsyqpuai .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#hphsyqpuai .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#hphsyqpuai .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#hphsyqpuai .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#hphsyqpuai .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: small;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#hphsyqpuai .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: small;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#hphsyqpuai .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#hphsyqpuai .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#hphsyqpuai .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#hphsyqpuai .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#hphsyqpuai .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#hphsyqpuai .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#hphsyqpuai .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#hphsyqpuai .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#hphsyqpuai .gt_row {
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#hphsyqpuai .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#hphsyqpuai .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#hphsyqpuai .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#hphsyqpuai .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#hphsyqpuai .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#hphsyqpuai .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#hphsyqpuai .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#hphsyqpuai .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#hphsyqpuai .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#hphsyqpuai .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#hphsyqpuai .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#hphsyqpuai .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#hphsyqpuai .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#hphsyqpuai .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#hphsyqpuai .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#hphsyqpuai .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#hphsyqpuai .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#hphsyqpuai .gt_left {
+  text-align: left;
+}
+
+#hphsyqpuai .gt_center {
+  text-align: center;
+}
+
+#hphsyqpuai .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#hphsyqpuai .gt_font_normal {
+  font-weight: normal;
+}
+
+#hphsyqpuai .gt_font_bold {
+  font-weight: bold;
+}
+
+#hphsyqpuai .gt_font_italic {
+  font-style: italic;
+}
+
+#hphsyqpuai .gt_super {
+  font-size: 65%;
+}
+
+#hphsyqpuai .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#hphsyqpuai .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#hphsyqpuai .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#hphsyqpuai .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#hphsyqpuai .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#hphsyqpuai .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#hphsyqpuai .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#hphsyqpuai .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#hphsyqpuai div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table do-not-create-environment cell caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="header gt_col_headings">
+<th id="Øvelse" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Øvelse</th>
+<th id="Kjønn" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Kjønn</th>
+<th id="Gjennomsnittlig Belastning (kg)" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Gjennomsnittlig Belastning (kg)</th>
+<th id="Standardavvik (kg)" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Standardavvik (kg)</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd gt_group_heading_row">
+<td colspan="4" id="post - multiple" class="gt_group_heading" data-quarto-table-cell-role="th" scope="colgroup">post - multiple</td>
+</tr>
+<tr class="even gt_row_group_first">
+<td class="gt_row gt_left" headers="post - multiple  Exercise">Lårspark</td>
+<td class="gt_row gt_left" headers="post - multiple  Kjønn">Kvinne</td>
+<td class="gt_row gt_right" headers="post - multiple  Mean_Load">71.45</td>
+<td class="gt_row gt_right" headers="post - multiple  SD_Load">16.32</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="post - multiple  Exercise">Lårspark</td>
+<td class="gt_row gt_left" headers="post - multiple  Kjønn">Herre</td>
+<td class="gt_row gt_right" headers="post - multiple  Mean_Load">108.91</td>
+<td class="gt_row gt_right" headers="post - multiple  SD_Load">19.02</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="post - multiple  Exercise">Beinpress</td>
+<td class="gt_row gt_left" headers="post - multiple  Kjønn">Kvinne</td>
+<td class="gt_row gt_right" headers="post - multiple  Mean_Load">231.18</td>
+<td class="gt_row gt_right" headers="post - multiple  SD_Load">45.04</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="post - multiple  Exercise">Beinpress</td>
+<td class="gt_row gt_left" headers="post - multiple  Kjønn">Herre</td>
+<td class="gt_row gt_right" headers="post - multiple  Mean_Load">292.94</td>
+<td class="gt_row gt_right" headers="post - multiple  SD_Load">70.65</td>
+</tr>
+<tr class="even gt_group_heading_row">
+<td colspan="4" id="post - single" class="gt_group_heading" data-quarto-table-cell-role="th" scope="colgroup">post - single</td>
+</tr>
+<tr class="odd gt_row_group_first">
+<td class="gt_row gt_left" headers="post - single  Exercise">Lårspark</td>
+<td class="gt_row gt_left" headers="post - single  Kjønn">Kvinne</td>
+<td class="gt_row gt_right" headers="post - single  Mean_Load">71.32</td>
+<td class="gt_row gt_right" headers="post - single  SD_Load">14.82</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="post - single  Exercise">Lårspark</td>
+<td class="gt_row gt_left" headers="post - single  Kjønn">Herre</td>
+<td class="gt_row gt_right" headers="post - single  Mean_Load">101.25</td>
+<td class="gt_row gt_right" headers="post - single  SD_Load">14.86</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="post - single  Exercise">Beinpress</td>
+<td class="gt_row gt_left" headers="post - single  Kjønn">Kvinne</td>
+<td class="gt_row gt_right" headers="post - single  Mean_Load">223.75</td>
+<td class="gt_row gt_right" headers="post - single  SD_Load">48.73</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="post - single  Exercise">Beinpress</td>
+<td class="gt_row gt_left" headers="post - single  Kjønn">Herre</td>
+<td class="gt_row gt_right" headers="post - single  Mean_Load">280.47</td>
+<td class="gt_row gt_right" headers="post - single  SD_Load">65.58</td>
+</tr>
+<tr class="odd gt_group_heading_row">
+<td colspan="4" id="pre - multiple" class="gt_group_heading" data-quarto-table-cell-role="th" scope="colgroup">pre - multiple</td>
+</tr>
+<tr class="even gt_row_group_first">
+<td class="gt_row gt_left" headers="pre - multiple  Exercise">Lårspark</td>
+<td class="gt_row gt_left" headers="pre - multiple  Kjønn">Kvinne</td>
+<td class="gt_row gt_right" headers="pre - multiple  Mean_Load">46.75</td>
+<td class="gt_row gt_right" headers="pre - multiple  SD_Load">10.79</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="pre - multiple  Exercise">Lårspark</td>
+<td class="gt_row gt_left" headers="pre - multiple  Kjønn">Herre</td>
+<td class="gt_row gt_right" headers="pre - multiple  Mean_Load">67.50</td>
+<td class="gt_row gt_right" headers="pre - multiple  SD_Load">11.76</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="pre - multiple  Exercise">Beinpress</td>
+<td class="gt_row gt_left" headers="pre - multiple  Kjønn">Kvinne</td>
+<td class="gt_row gt_right" headers="pre - multiple  Mean_Load">136.00</td>
+<td class="gt_row gt_right" headers="pre - multiple  SD_Load">38.72</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="pre - multiple  Exercise">Beinpress</td>
+<td class="gt_row gt_left" headers="pre - multiple  Kjønn">Herre</td>
+<td class="gt_row gt_right" headers="pre - multiple  Mean_Load">197.37</td>
+<td class="gt_row gt_right" headers="pre - multiple  SD_Load">61.62</td>
+</tr>
+<tr class="even gt_group_heading_row">
+<td colspan="4" id="pre - single" class="gt_group_heading" data-quarto-table-cell-role="th" scope="colgroup">pre - single</td>
+</tr>
+<tr class="odd gt_row_group_first">
+<td class="gt_row gt_left" headers="pre - single  Exercise">Lårspark</td>
+<td class="gt_row gt_left" headers="pre - single  Kjønn">Kvinne</td>
+<td class="gt_row gt_right" headers="pre - single  Mean_Load">47.50</td>
+<td class="gt_row gt_right" headers="pre - single  SD_Load">9.97</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="pre - single  Exercise">Lårspark</td>
+<td class="gt_row gt_left" headers="pre - single  Kjønn">Herre</td>
+<td class="gt_row gt_right" headers="pre - single  Mean_Load">67.63</td>
+<td class="gt_row gt_right" headers="pre - single  SD_Load">10.98</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="pre - single  Exercise">Beinpress</td>
+<td class="gt_row gt_left" headers="pre - single  Kjønn">Kvinne</td>
+<td class="gt_row gt_right" headers="pre - single  Mean_Load">137.50</td>
+<td class="gt_row gt_right" headers="pre - single  SD_Load">35.41</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="pre - single  Exercise">Beinpress</td>
+<td class="gt_row gt_left" headers="pre - single  Kjønn">Herre</td>
+<td class="gt_row gt_right" headers="pre - single  Mean_Load">192.50</td>
+<td class="gt_row gt_right" headers="pre - single  SD_Load">58.45</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+<p>Tabell 2. Her ser me ei oversikt over deskriptiv data for styrken til deltakarane både ved pre og ved post. verdiene er i gjennomsnittleg belastning samt med standardavvik.</p>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Assignment_5_files/figure-html/Figur%202-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption>Figur 5. Endringar i 1RM beinpress ved lavt versus moderat treningsvolum (N = 34) fra pre treningsintervensjonen til post.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="diskusjon" class="level2">
+<h2 class="anchored" data-anchor-id="diskusjon">Diskusjon</h2>
+<p>Denne studien undersøkte effekten av to ulike treningsvolum, eitt sett versus tre sett, på muskelmasse og muskelstyrke. Resultata viste at begge gruppene opplevde ein signifikant auke i både muskelstyrke og muskeltverrsnittsareal etter treningsperioden. Likevel fann vi ingen statistisk signifikante skilnader mellom gruppene som utførte eitt sett og dei som utførte tre sett, verken når det gjaldt muskelstyrke eller muskelhypertrofi.</p>
+<p>Desse funna utfordrar den vanlege oppfatninga om at høgare treningsvolum alltid gjev betre resultat når det gjeld muskeltilpassing. Tidlegare forsking har ofte vist ein dose-respons-samanheng mellom treningsvolum og muskelvekst, der meir volum er knytt til større auke i både hypertrofi og styrke (Schoenfeld, 2017. Grgic, 2018. Ruple et al.&nbsp;2023). Til dømes fann (<span class="citation" data-cites="Schoenfeld">@Schoenfeld</span> et al., 2017) at eit høgare volum av styrketrening vil gi ein større respons.</p>
+<p>Ei mogleg forklaring på funna våre er at begge treningsvoluma var tilstrekkelege til å utløysa maksimale tilpassingar i løpet av den avgrensa treningsperioden. Det er mogleg at det finnast ein terskelverdi for kor mykje treningsvolum som er nødvendig for å stimulere muskelvekst og styrke, og at denne terskelen blei nådd med berre eitt sett i vår studie. Dette stemmer overeins med forsking som viser at også lågare treningsvolum kan vere effektive for muskelhypertrofi, spesielt hos utrente individ (<span class="citation" data-cites="Grgic">@Grgic</span>, 2018; <span class="citation" data-cites="Schoenfeld2019">@Schoenfeld2019</span>).</p>
+<p>Begge gruppene betydelege forbetringar i muskelstyrke, men utan klare skilnader mellom deu ulike voluma. Grunna at treningsperioden som blei gjennomført var såpass kort, kan ha ført til at det var krevjande å oppdage forskjeller mellom gruppene, sidan store styrkeaukinger skjer tidlig i treningsfasen.</p>
+<p>Denne studien undersøkte korleis to ulike treningsvolum – eitt sett samanlikna med tre sett – påverka muskelvekst og muskelstyrke. Resultata viste ein signifikant auke i både muskelstyrke og muskelmasse i begge treningsgruppene etter intervensjonsperioden. Likevel blei det ikkje avdekt statistisk signifikante forskjellar mellom gruppene som utførte eitt sett og dei som utførte tre sett, verken for styrke eller muskelhypertrofi.</p>
+<p>Funna stiller spørsmål ved den tradisjonelle oppfatninga om at større treningsvolum alltid resulterer i betre muskeltilpassingar. Tidlegare studiar har ofte peikt på ein dose-respons-samanheng, der auka volum er knytt til meir muskelvekst og styrkeforbetring (<span class="citation" data-cites="Schoenfeld">@Schoenfeld</span>, 2017; <span class="citation" data-cites="Grgic">@Grgic</span>, 2018; <span class="citation" data-cites="Ruple">@Ruple</span> et al., 2023). Til dømes viste (<span class="citation" data-cites="Schoenfeld">@Schoenfeld</span> et al., 2017) at eit større treningsvolum gav ein tydelegare respons når det kom til muskelhypertrofi.</p>
+<p>Ei forklaring på desse funna kan vere at begge treningsprotokollane oversteg det volumet som er nødvendig for å oppnå maksimale muskeltilpassingar innan den avgrensa treningsperioden. Det kan tenkjast at ein terskel for treningsvolum blei nådd med berre eitt sett, noko som samsvarer med tidlegare forsking som indikerer at moderat treningsvolum kan vere tilstrekkeleg for muskelvekst, spesielt hos utrente individ (<span class="citation" data-cites="Grgic">@Grgic</span>, 2018. <span class="citation" data-cites="Schoenfeld">@Schoenfeld</span>, 2019).</p>
+<p>Begge gruppene opplevde altså betydelege styrkeforbetringar, utan skilnader mellom dei ulike treningsvoluma. Det korte tidsrommet for treningsintervensjonen kan ha påverka moglegheita til å påvise eventuelle forskjellar, sidan styrkeframgang ofte skjer raskt i starten av ein treningsprosess.</p>
+</section>
+<section id="konklusjon" class="level2">
+<h2 class="anchored" data-anchor-id="konklusjon">Konklusjon</h2>
+<p>I konklusjon av denne studien, er både eitt sett og tre sett med styrketrening effektivt for å stimulere auke i muskelstyrke og muskalmasse etter ein treningsperiode, utan klare skilnader mellom dei voluma. dette tyder på at eit lpgare treningsvolum kan være tilstrekkeleg for å nær maksimal muskeltilpasningar innanfor ein avgrensa tidsperiode, spesielt hos relativt utrente individ. funna utfordrer den vanlege oppfatninga om at eit høgare treningvolum alltid gjev betre resultat, og understreker at nevromuskulære faktorar og tilstrekkeleg intensitet kan være viktigare en volum åleine for styrkeaukingar i dei tidlege fasane av trening. Dermed kan eitt sett per øving være eit effektivt og tidseffektivt alternativ for styrke- og muskelutveikling, særleg for utrente. Likevell er fortsatt mangel på forskning angående langtidseffektene av eit slikt lavt volum</p>
+</section>
+<section id="referanseliste" class="level2">
+<h2 class="anchored" data-anchor-id="referanseliste">Referanseliste:</h2>
+<ul>
+<li>Burd NA, Holwerda AM, Selby KC, West DW, Staples AW, Cain NE, Cashaback JG, Potvin JR, Baker SK &amp; Phillips SM (2010). Resistance exercise volume affects myofibrillar protein synthesis and anabolic signalling molecule phosphorylation in young men. J Physiol 588, 3119–3130.</li>
+<li>Grgic J, Schoenfeld BJ, Davies TB, Lazinica B, Krieger JW, Pedisic Z. Effect of Resistance Training Frequency on Gains in Muscular Strength: A Systematic Review and Meta-Analysis. Sports Med. 2018 May;48(5):1207-1220. doi: 10.1007/s40279-018-0872-x. PMID: 29470825.</li>
+<li>Kraemer WJ, Ratamess NA. Hormonal responses and adaptations to resistance exercise and training. Sports Med. 2005;35(4):339-61. doi: 10.2165/00007256-200535040-00004. PMID: 15831061.</li>
+<li>Raastad, T., Paulsen, G., Refsnes, P., Rønnestad, B., Wisnes, A.(2010) Styrketrening - i teori og praksis.</li>
+<li>Ruple BA, Plotkin DL, Smith MA, Godwin JS, Sexton CL, McIntosh MC, Kontos NJ, Beausejour JP, Pagan JI, Rodriguez JP, Sheldon D, Knowles KS, Libardi CA, Young KC, Stock MS, Roberts MD. The effects of resistance training to near failure on strength, hypertrophy, and motor unit adaptations in previously trained adults. Physiol Rep.&nbsp;2023 May;11(9):e15679. doi: 10.14814/phy2.15679. PMID: 37144554; PMCID: PMC10161210.</li>
+<li>Schoenfeld BJ, Ogborn D, Krieger JW. Dose-response relationship between weekly resistance training volume and increases in muscle mass: A systematic review and meta-analysis. J Sports Sci. 2017 Jun;35(11):1073-1082. doi: 10.1080/02640414.2016.1210197. Epub 2016 Jul 19. PMID: 27433992.</li>
+<li>Westcott WL. Resistance training is medicine: effects of strength training on health. Curr Sports Med Rep.&nbsp;2012 Jul-Aug;11(4):209-16. doi: 10.1249/JSR.0b013e31825dabb8. PMID: 22777332.</li>
+</ul>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

@@ -1,0 +1,453 @@
+---
+title: "Assignment 3"
+format: html
+editor: visual
+editor_options: 
+  chunk_output_type: console
+---
+
+
+
+# Introduksjon
+I dette arbeidskravet skal eg simulere ein populasjon som representerer mulige forskjeller mellom to behandlinger fra ein crossover-studie, der deltakarane har gjennomgått begge intervensjonene. Føremålett er å trekke tilfeldige utvalg av denne populasjonen samt beregne relevante statistiske mål og deretter tolke resultatene 
+
+I tillegg til ein enkel analyse av enkelte utvalg, skal eg utføre fleire simuleringer for å forstå korleis utvalgsstørrelsen og variabiliteten påverker våre statistiske estimater. Dette vil gi meg ein innsikt i viktige statistiske begreper som estimater, standardfeil, t-verdi og p-verdi, og korleis desse påverkes av ulik utvalgsstørrelse og variabilitet i populasjonen.
+
+
+
+
+```{r}
+#| label: "1"
+#| warning: false
+#| message: false
+#| echo: false
+
+
+#Klargjøring av data
+
+library(tidyverse)
+library(ggplot2)
+
+set.seed(1)
+population <- rnorm(1000000, mean = 1.5, sd = 3)
+
+
+samp1 <- data.frame(y = sample(population, 8, replace = FALSE))
+
+samp2 <- data.frame(y = sample(population, 40, replace = FALSE))
+
+
+m1 <- lm(y ~ 1, data = samp1)
+m2 <- lm(y ~ 1, data = samp2)
+
+
+
+```
+
+
+
+```{r}
+#| label: "t, p"
+#| warning: false
+#| message: false
+#| echo: false
+
+
+
+set.seed(1)
+
+population <- rnorm(1000000, mean = 1.5, sd = 3)
+
+
+samp1 <- data.frame(y = sample(population, 8, replace = FALSE))  
+samp2 <- data.frame(y = sample(population, 40, replace = FALSE)) 
+
+
+m1 <- lm(y ~ 1, data = samp1)  
+m2 <- lm(y ~ 1, data = samp2) 
+
+
+
+
+mean_samp1 <- mean(samp1$y)
+sd_samp1 <- sd(samp1$y)
+
+mean_samp2 <- mean(samp2$y)
+sd_samp2 <- sd(samp2$y)
+
+
+se_samp1 <- sd_samp1 / sqrt(8)
+se_samp2 <- sd_samp2 / sqrt(40)
+
+
+t_value_samp1 <- mean_samp1 / se_samp1
+t_value_samp2 <- mean_samp2 / se_samp2
+
+
+
+```
+
+## 1.
+
+"Explain the estimate, SE, t-value, and p-value from the regression models that we created previously (m1 and m2."
+
+
+```{r}
+#| label: "oppg 1"
+#| warning: false
+#| message: false
+#| echo: false
+
+library(knitr)
+
+# Lag en data frame med resultatene for begge utvalgene
+results_table <- data.frame(
+  Utvalg = c("m 1 (n=8)", "m 2 (n=40)"),
+  Gjennomsnitt = c(mean_samp1, mean_samp2),
+  Standardavvik = c(sd_samp1, sd_samp2),
+  Standardfeil = c(se_samp1, se_samp2),
+  t_verdi = c(t_value_samp1, t_value_samp2)
+)
+
+# Bruk kable() for å lage tabellen i HTML-format
+kable(results_table, caption = "Oversikt over statistiske mål for Utvalg 1 og Utvalg 2")
+
+```
+
+Forklaring av estimering, standardfeil, t-verdi og p-verdi fra regresjonsmodellene m1 og m2:
+Estimate: Estimatet i regresjonsmodellen er gjennomsnittsverdien i utvalget ditt. For m1 er dette gjennomsnittet for et utvalg på 8, og for m2 er det gjennomsnittet for et utvalg på 40.
+
+For eksempel, i m1 er estimatet 1.84. Dette betyr at gjennomsnittlig forskjell mellom de to behandlingene i dette utvalget er 1.84.
+Standard Error (SE): Standardfeilen er et mål på hvor presist du har estimert gjennomsnittet. Det er standardavviket delt på kvadratroten av utvalgsstørrelsen.
+
+I m1 er SE = 1.251, som betyr at det er en viss usikkerhet rundt estimatet på 1.84.
+t-value: t-verdien er et forhold mellom estimatet og standardfeilen: t = estimate / SE. Denne verdien sier noe om hvor mange ganger standardfeilen estimatet er fra 0.
+
+For m1 er t-verdien 1.47, som betyr at estimatet er omtrent 1.47 standardfeiler unna null.
+p-value: P-verdien viser sannsynligheten for å observere en t-verdi minst så ekstrem som den vi har, under antagelsen om at nullhypotesen er sann (at det ikke er noen forskjell mellom behandlingene). En høy p-verdi (som i m1 på 0.185) indikerer at vi ikke kan avvise nullhypotesen.
+
+## 2.
+
+"Discuss what contributes to the different results in the two studies (m1 and m2).
+
+For å finne p-verdiene for m1 og m2 koder eg følgande:"
+
+```{r}
+#| label: "p-verdi populasjon"
+#| warning: false
+#| message: false
+#| output: false
+summary(m1)$coefficients[1, 4]
+summary(m2)$coefficients[1, 4]
+
+```
+Her ser vi at p-verdien til m1 er 0.185, og p-verdien til m2 er 0.002. Dermed er m2 under en p-verdi på 0.05, som indikerer at effekten er statistisk signifikant og lavere sansynlighet for at det skylder tilfeldige variasjoner. p-verdien i m1 er derimot ein del høgare en 0.05 og er dermed ikke signifikant. Større utvalgsstørrelser reduserer standardfeilen og øker sjansen for å oppdage en statistisk signifikant effekt. Dette skyldes at større utvalg gir et mer presist estimat av populasjonsgjennomsnittet.
+
+## 3.
+
+"Why do we use the shaded area in the lower and upper tail of the t-distribution."
+
+```{r}
+#| label: "bilde normalfordeling"
+#| echo: false
+# Last inn nødvendige bibliotek
+library(knitr)
+
+# Sett inn bilde fra fil
+include_graphics("https://dhammarstrom.github.io/quant-methods-workshops/assignment-3_files/figure-html/t-dist-fig-1.png")
+
+include_graphics("https://dhammarstrom.github.io/quant-methods-workshops/assignment-3_files/figure-html/t-dist-fig-1.png")
+
+```
+
+På denne grafen, ser me eit skyggefullt areal på begge sidene, grunnet at dette er ein tosidig test (two-tailed). Det skyggefulle arealet i en t-fordeling representerer p-verdien, som viser sannsynligheita for å få ein t-verdi like ekstrem eller meir ekstrem enn den observerte, gitt at nullhypotesen er sann. Desto mindre arealet er, desto lavere er p-verdien, noko som indikerer sterkere bevis mot nullhypotesen og auker sansynlegheita for at forskjellen er signifikant.
+
+
+
+```{r}
+#| label: "resultat 1000 studier"
+#| warning: false
+#| message: false
+#| echo: false
+#| output: false
+
+# lagre data med model estimat
+results_8 <- data.frame(estimate = rep(NA, 1000), 
+                      se = rep(NA, 1000), 
+                      pval = rep(NA, 1000), 
+                      n = 8)  
+
+results_40 <- data.frame(estimate = rep(NA, 1000), 
+                      se = rep(NA, 1000), 
+                      pval = rep(NA, 1000), 
+                      n = 40)
+
+ 
+# lage loop brukt til 1000 studier
+
+for(i in 1:1000) {
+  
+  # sample 
+  samp1 <- data.frame(y = sample(population, 8, replace = FALSE))
+  samp2 <- data.frame(y = sample(population, 40, replace = FALSE))
+
+  # modell fra data
+  m1 <- lm(y ~ 1, data = samp1)
+  m2 <- lm(y ~ 1, data = samp2)
+  
+  # verdier fra modellene
+  results_8[i, 1] <- coef(summary(m1))[1, 1]
+  results_8[i, 2] <- coef(summary(m1))[1, 2]
+  results_8[i, 3] <- coef(summary(m1))[1, 4]
+
+  results_40[i, 1] <- coef(summary(m2))[1, 1]
+  results_40[i, 2] <- coef(summary(m2))[1, 2]
+  results_40[i, 3] <- coef(summary(m2))[1, 4]
+  
+  
+}
+
+
+# resultat i dataen
+
+results <- bind_rows(results_8, results_40)
+```
+
+## 4.
+
+"Calculate the standard deviation of the estimate variable, and the average of the se variable for each of the study sample sizes (8 and 40). Explain why these numbers are very similar. How can you define the Standard Error (SE) in light of these calculations?"
+
+For å finne verdiene for standardavviket og den gjennomsnittlege SE-verdien bruker eg følgande kommando
+```{r}
+#| label: "gjennomsnit SE"
+#| warning: false
+#| message: false
+#| output: false
+# Standardavvik av estimater
+sd(results_8$estimate)
+sd(results_40$estimate)
+
+# Gjennomsnittlig SE
+mean(results_8$se)
+mean(results_40$se)
+
+```
+
+For n=8, standardavviket for estimatene er 1.071, og gjennomsnittlig standardfeil (SE) er 1.021. For n=40, standardavviket for estimatene er 0.484, og gjennomsnittlig standardfeil (SE) er 0.470.
+
+
+Standardavviket for estimatene viser hvor mye estimatene vil variere mellom forskjellige utvalg som trekkes tilfeldig fra populasjonen. Dette reflekterer den naturlige variasjonen i gjennomsnittet på tvers av flere utvalg. På den andre siden, standardfeilen (SE) gir et mål for hvor mye et estimat fra ett enkelt utvalg er forventet å avvike fra det sanne gjennomsnittet i populasjonen. Begge målene er relatert til variasjonen i dataene og gir oss informasjon om usikkerheten rundt gjennomsnittet som er beregnet fra utvalget.
+
+Standardfeilen kan forstås som et mål for hvor presist vi kan forutsi populasjonens gjennomsnitt basert på utvalgets gjennomsnitt. Med andre ord, den viser hvor nøyaktig estimatet er. Når flere utvalg tas, vil standardfeilen bli mer lik standardavviket for estimatene, fordi begge måler hvor mye estimatene sprer seg rundt det sanne gjennomsnittet i populasjonen.
+
+
+
+## 5.
+
+"Create a histogram (see example code below) of the p-values from each study sample-size. How do you interpret these histograms, what do they tell you about the effect of sample size on statistical power?"
+
+
+
+```{r}
+#| label: "histogram p verdi"
+#| warning: false
+#| message: false
+#| echo: false
+
+
+
+# ein 2 sidig histogram med ggplot2
+results %>%
+  ggplot(aes(pval)) + 
+  geom_histogram() +
+  facet_wrap(~ n)
+
+# telle du med p-verdi under 0.05
+results %>%
+  filter(pval < 0.05) %>%
+  group_by(n) %>%
+  summarise(sig_results = n()/1000)
+```
+
+I dette histogrammet ser me fordelingen av p-verdier fra dei to gruppene med ulik utvalgstørrelse. Her ser me at det er ein større andel signifikante p-verdier i n = 40 en ved n = 8, noko som indikerer ein auka statistisk styrke med større utvalg. 
+
+
+## 6.
+
+"Calculate the number of studies from each sample size that declare a statistical significant effect (specify a threshold for your significance level)."
+
+
+For å kalkulere antall signifikante studier bruker eg følgende kode og får dette resultatet:
+```{r}
+#| label: "power_significance"
+#| warning: false
+#| message: false
+
+set.seed(1)  # For reproducerbarhet
+
+# Antall simuleringer
+num_studies <- 1000
+
+# Funksjon for å kjøre flere simuleringer av t-test og telle signifikante p-verdier
+calculate_significant_results <- function(n, effect_size, alpha = 0.05) {
+  pvals <- replicate(num_studies, {
+    # Simulerer data for et tilfeldig utvalg
+    samp <- rnorm(n, mean = 1.5, sd = 3)
+    # Kjører t-test
+    test <- t.test(samp)
+    # Returner p-verdien
+    test$p.value
+  })
+  
+  # Tell hvor mange p-verdier er mindre enn signifikansnivået (0.05)
+  sum(pvals < alpha)
+}
+
+# Beregn signifikante resultater for n=8 og n=40
+significant_results_8 <- calculate_significant_results(n = 8, effect_size = 1.5 / 3)
+significant_results_40 <- calculate_significant_results(n = 40, effect_size = 1.5 / 3)
+
+# Lag en data frame med resultatene
+significance_results <- data.frame(
+  Utvalg = c("n=8", "n=40"),
+  Signifikante_resultater = c(significant_results_8, significant_results_40)
+)
+
+# Bruk kable() for å lage tabellen i HTML-format
+kable(significance_results, caption = "Antall signifikante resultater for ulike utvalgsstørrelser (n=8, n=40)")
+
+
+```
+Her er signifikansnivået satt til p<0.05
+
+
+## 7.
+
+"Using the pwr package, calculate the power of a one-sample t-test, with a effect size of 1.5/3, your specified significance level and sample sizes 8 and 40. Explain the results in the light of your simulations."
+
+```{r}
+#| label: "powertest"
+#| warning: false
+#| message: false
+#| echo: false
+ 
+ library(pwr)
+ library(knitr)
+ 
+# Beregning av styrke for en one-sample t-test
+ result1 <- pwr.t.test(n = 8, sig.level = 0.05, d = 1.5 / 3, type = "one.sample")
+ result2 <- pwr.t.test(n = 40, sig.level = 0.05, d = 1.5 / 3, type = "one.sample")
+ 
+ # Lag en data frame med resultatene
+ power_results <- data.frame(
+   Utvalg = c("n=8", "n=40"),
+   Effektstorrelse = c(result1$d, result2$d),
+   Signifikansniva = c(result1$sig.level, result2$sig.level),
+   Power = c(result1$power, result2$power)
+ )
+
+# Bruk kable() for å lage tabellen i HTML-format
+kable(power_results, caption = "Styrke (Power) for One-Sample T-test med forskjellige utvalgsstørrelser")
+```
+
+
+Den statistiske styrken til n = 8 er 0.232. Dette indikerer at det er en høg risiko for å oppnå ein type 1 feil. Dette samsvarer med resultatene fra simuleringen som sa at 23.4% av studiene med n = 8 ble signifikante. På den andre sida ser me at n = 40 ender på 0.869. Dette er ein god styrke for å oppdage en effekt. Sjølv om nokon studier ønsker en styrke på over 0.9, er dette forstatt en god indikator for å rapportere signifikante resultater. Denne styrken samvarer også godt med simuleringen, som var på 86.3% for n = 40.
+
+```{r}
+#| label: "2"
+#| warning: false
+#| message: false
+#| echo: false
+population <- rnorm(1000000, mean = 0, sd = 3)
+
+
+
+# lage data med model estimat
+results_8 <- data.frame(estimate = rep(NA, 1000), 
+                      se = rep(NA, 1000), 
+                      pval = rep(NA, 1000), 
+                      n = 8)  
+
+results_40 <- data.frame(estimate = rep(NA, 1000), 
+                      se = rep(NA, 1000), 
+                      pval = rep(NA, 1000), 
+                      n = 40)
+
+# loop for 1000 studer
+
+for(i in 1:1000) {
+  
+  # sample
+  samp1 <- data.frame(y = sample(population, 8, replace = FALSE))
+  samp2 <- data.frame(y = sample(population, 40, replace = FALSE))
+
+  #model for data
+  m1 <- lm(y ~ 1, data = samp1)
+  m2 <- lm(y ~ 1, data = samp2)
+  
+  # verdier for data
+  results_8[i, 1] <- coef(summary(m1))[1, 1]
+  results_8[i, 2] <- coef(summary(m1))[1, 2]
+  results_8[i, 3] <- coef(summary(m1))[1, 4]
+
+  results_40[i, 1] <- coef(summary(m2))[1, 1]
+  results_40[i, 2] <- coef(summary(m2))[1, 2]
+  results_40[i, 3] <- coef(summary(m2))[1, 4]
+  
+  
+}
+
+
+#lagre data i dataframe
+
+results_null <- bind_rows(results_8, results_40)
+```
+
+
+```{r}
+#| label: "histogramm p-verdier"
+#| warning: false
+#| message: false
+#| echo: false
+
+#Lage histogrammer for p-verdiene:
+results_null %>%
+  ggplot(aes(pval)) + 
+  geom_histogram(bins = 30, fill = "blue", alpha = 0.7) +
+  facet_wrap(~ n) + 
+  labs(title = "Distribusjon av P-verdier",
+       x = "P-verdi",
+       y = "Antall studier") +
+  theme_minimal()
+
+```
+
+Beregning av antall falske positive resultater:
+```{r}
+#| label: "beregne antall positive resultat"
+#| warning: false
+#| message: false
+
+false_positives <- results_null %>%
+  filter(pval < 0.05) %>%
+  group_by(n) %>%
+  summarise(sig_results = n() / 1000)
+
+
+
+```
+
+Dette gir verdiene 0.052 for n = 8, og 0.054 for n = 40.
+
+## 8.
+
+"With a significance level of 5%, how many studies would give you a “false positive” result if you did many repeated studies?"
+
+I simuleringen undersøkte eg andelen falske positive resultater for utvalgsstørrelser på 8 og 40. For utvalget på 8 var andelen som gav signifikante p-verdier 3.8%, mens den for utvalget på 40 var 4.4%.
+
+Desse resultatene viser at sjølv uten ein reell effekt kan et betydeleg antall studier gi falske positive resultater. Vanlegvis forventer me at større utvalg reduserer sleke tilfeller, men her kan tilfeldige variasjoner i større prøver føre til fleire feilaktege signifikante funn.
+
+Funnene understreker viktigheten av å være kritisk til p-verdier og forstå potensielle utfordringer med falske positive i statistiske analyser.
+
+
+

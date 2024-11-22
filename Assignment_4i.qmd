@@ -1,0 +1,172 @@
+---
+title: "Assignment 4"
+format: html
+editor_options: 
+  chunk_output_type: console
+---
+
+
+```{=html}
+<style>
+  h2 {
+    color: black;
+    font-size: 24px;
+  }
+</style>
+```
+<p>
+
+<h1>Study design</h1>
+
+
+
+```{r}
+#| label: "studier_detaljer"
+#| warning: false
+#| message: false
+#| echo: false
+
+# Lag en tabell manuelt
+studier_detaljer <- data.frame(
+  Studie = c("(Breil, 2010)", "(Gomez, 2020)", "(Hebisz, 2021)", 
+             "(Rønnestad, 2012a)", "(Rønnestad, 2012b)"),
+  Referanse = c(
+    "Breil FA, Weber SN, Koller S, Hoppeler H, Vogt M. Block training periodization in alpine skiing: effects of 11-day HIT on VO2max and performance. Eur J Appl Physiol. 2010 Aug;109(6):1077-86. doi: 10.1007/s00421-010-1455-1.",
+    "GC3mez MartC-n JP, Clemente-SuC!rez VJ, Ramos-Campo DJ. Hematological and Running Performance Modification of Trained Athletes after Reverse vs. Block Training Periodization. Int J Environ Res Public Health. 2020 Jul 4;17(13):4825. doi: 10.3390/ijerph17134825.",
+    "Hebisz P, Hebisz R, Drelak M. Comparison of Aerobic Capacity Changes as a Result of a Polarized or Block Training Program among Trained Mountain Bike Cyclists. Int J Environ Res Public Health. 2021 Aug 23;18(16):8865. doi: 10.3390/ijerph18168865.",
+    "Rønnestad BR, Hansen J, Ellefsen S. Block periodization of high-intensity aerobic intervals provides superior training effects in trained cyclists. Scand J Med Sci Sports. 2014 Feb;24(1):34-42. doi: 10.1111/j.1600-0838.2012.01485.x.",
+    "Rønnestad BR, Ellefsen S, Nygaard H, Zacharoff EE, Vikmoen O, Hansen J, Hallén J. Effects of 12 weeks of block periodization on performance and performance indices in well-trained cyclists. Scand J Med Sci Sports. 2014 Apr;24(2):327-35. doi: 10.1111/sms.12016."
+  ),
+  PubMed_Link = c(
+    "https://pubmed.ncbi.nlm.nih.gov/20364385/",
+    "https://pubmed.ncbi.nlm.nih.gov/32635515/",
+    "https://pubmed.ncbi.nlm.nih.gov/34444612/",
+    "https://pubmed.ncbi.nlm.nih.gov/22646668/",
+    "https://pubmed.ncbi.nlm.nih.gov/23134196/"
+  )
+)
+
+# Generere tabellen
+library(knitr)
+kable(studier_detaljer, 
+      caption = "Oversikt over studier inkludert i rapporten.",
+      escape = FALSE) 
+
+```
+
+## Innledning
+
+I denne raporten skal eg ta for meg ein analyse av 5 originale forskningsstudier som undersøker effekten av blokk-periodisering med høgintensitetstrening på VO<sub>2max</sub> til trente idrettsutøvarar. Studiene er forskjellige i den grunn at dei har ulik antall forsøkspersoner samt at deltakerne kjem frå ulik idrettsbakgrunn. Tre av studiene inneheld godt trente sykkelister (Rønnestad, 2012a. Hebisz, 2021. Rønnestad 2012b) , ein av studiene inneheld trente løpere (Gomez, 2020) og den siste inneheld alpinister (Breil, 2010). Studiene har også ulik lengde på blokkperiodiseringen og ulik treningsplan.
+
+Til tross for ulikheitene i forskningsprosjektene, prøver forskarane i hovudsak å finne ein treningsmetode som kan være meir effektiv for å auke prestasjonen i sin idrett. Meir spesifikk ønsker desse to studiene (Rønnestad, 2012a. Rønnestad 2012b) å finne ut om en blokkperiodisering av høgintensitetstrening vil auke VO<sub>2max</sub> og terskelwatt mer en tradisjonell trening dersom volumet er likt, hos trente sykkelister. Denne studien (Gomez, 2020) prøver å finne ut av kva som vill øke VO<sub>2max</sub> og løpeprestasjonen mest av å trene blokkpreiodisering og reversed training periodisering. I denne studien (Heibisz, 2020) ønsker dei å finne ut kva som øker den aerobe kapasiteten og vo2-max mest av blokkperiodisering og plarized treningsprogram hos mountainbike sykkelister. Den siste studien (Breil, 2010) ser etter kor stor auking i VO<sub>2max</sub> og prestasjon alpinister kan oppnå av ein blokkperiodisering av høgintesitetstrening.
+
+Desse problemstillingane er blanna av å bli lagt fram som eit spørsmål og som ei hypotese. Begge studiene (Rønnestad, 2012a. Rønnestad, 2012b) har både spørsmål og hypotese. Der spørsmålet er om blokkperiodisering vil gi bedre adaptasjoner en tradisjonell trening, medan hypotesen er at blokkperiodisering vill føre til bedre adaptasjoner samanlikna med tradisjonell trening sjølv om treingsvolumet er likt. Ei alternativ hypotese til dette vill da være at tradisjonell trening vil gi betre adaptasjoner enn blokkperiodisering, eller at dei vill gi samme treningsadaptasjoner. På den andre sida har me (Breil, 2010. Gomez, 2020. Heibisz, 2020) som har lagt fram sin problemstilling som spørsmål. 
+
+## Metoder
+
+Alle studiene har gjennomført en randomisert kontrollert studie, som går ut på å undersøke effekten av en bestemt behandling, i dette tilfelle en treningsmetode, ved å randomisertndele utvlagtet i 2 grupper som gjennomfører de forskjellige treningsmetodene. Etter at begge gruppene har gjennomført sin treningsperiode med den gitte metoden, kan ein sjå hvilke av metodene som har fått størst progresjon i de prestasjonsmetodene studien ønsker å måle. 
+
+Denne type studiedesign er gullstandard innan forskningsdesign, spesielt dersom me ønsker å undersøke årsakssammenheng. Grunnene til at dette studiedesignet er så pålitelige er både grunna den tilfeldige fordelinge, som minker sjangsen for at ulike grupper har systematiske forskjeller før studien starter. Forskarane har i tillegg ein god kontroll på at treninga blir gjennomført og at det blir gjort riktig og med kvalitet, dei kan da eliminere bort deltakarar som for eksempel ikkje har fått gjennomført nok treningsøkter. Fleire av desse studiene har også en kontrollgruppe som ikkje får behandlinga. Dette gjer at me kan samanlikne den reele effekten kvar av gruppene har opnådd. Dette gjer randomisert kontrollert studie til en verdifull metode for å undersøke effekten av ulike intervensjoner. 
+Vanlegvis i en slik type studie vill det være gunnstig å blinde både deltakere og forsker. Dette vill føre til at de ikke blir påvirket av kva gruppe dei er i, og eliminerer mulig plasebo-effekt. I desse studiene eg analyserer er dette vanskeleg. Deltakerne er selvfølgelig klar over kva treningsmetode dei bruker. Likevell går det for eksempel an å blinde testlederen. Dersom ein gjer dette, kan det føre til at testlederen for eksempel ikkje heier ekstra på de forsøkspersonene som har gjennomført blokkperiodisering, for å oppnå det resultatet en ønsker. Som gjort i dei studiene eg analyserer, har deltakerne ikkje fått vite resultat under pre og post testingen. Dette hindrer at deltakerne blir pårverka av deira prestasjon undervegs i testen. 
+
+Dersom me ser på korleis dei utvalgte studiane blei utførte, ser me at dei har nok så likt oppsett. Enkelt forklart har dei valgt å gjennomføre ein pre test like før forsøkspersonene satt i gang med treningsintervensjonen deira. Etter å ha gjennomført treningsintervensjonen, gjennomførte dei ein post test rundt ei veke etter for å undersøke den eventluelle framgangen til dei ulike gruppene. Ulikheitene mellom studiene var variasjon i lengden på treningintervensjonen. Her vill ein lengre treningintervensjon sansynleg føre til ein større skilnad mellom deu ulike gruppene, og det vill også være lettere å oppdage ein signifikant forskjell mellom pre- og post testene og dermed øke signifikansen til resultatene. Her speler både treningsopplegget og det fysiske nivået til forsøkspersonene også ein rolle, sidan godt trente personer krever meir stimuli for samme prestasjonsauking som utrente. 
+
+Dersom me samanligner forskningsstudien (Rønnestad, 2012b) der treningsintervensjonen varte i 12 veker kontra (Rønnestad, 2012a) det intervensjonen varte i 4 veker. Vill den lengste intervensjonen sansynligvis føre til en større eventuell signifikans i resultata, og bidra til å kompansere for ein lav utvalgsstørrelse. I foskningsstudien (Breil, 2010) varte treningsintervensjonen i kun 11 dager, her er det likevell ikkje behov for så lang periode. Dette kjem av at treningsopplegget er svært hardt, 15 høgintensitets intervaller på dei 11 dagene, samt at alpinistene i den studien ikkje er på samme utholdenhetsnivå som på dei andre studiene.
+
+Størrelsen på utvalget er også ein viktig del av å danne et forskningsprosjekt med pålitelig resultater. Desto fleire deltakarar som er med i forskningsprosjektet, desto sterkare statistiske resultater vill ein oppnå. For dei studiene eg har valgt ut, er det krevande å rekruttere testpersoner som oppfyller dei satte krava. I studien (Rønnestad, 2012b) rekrutterte dei godt trente sykkelister. Dette vill seie at dei var ute etter at personene måtte oppfylle krav til ein viss aerob terskelwatt samt VO<sub>2max</sub>. Dette blei gjort slik at utvalget deira skulle være lik populasjonen dei sikter på, altså godt trente sykkelister. I desse studiene derimot (Rønnestad, 2012a. Hebisz, 2021) er kriteriet for å delta i studien lavere. Her er trengte utvalget ikke være på like høgt nivå, og det vill gjere det lettare å rekruttere fleire forsøkspersoner. I tillegg er det også tidkrevjande å ha med for mange forsøkspersoner på ein gang. Dette er grunnet at kvar enkelt forsøksperson skal bli veileda under alle treningene og bli testa fleire gonger. Dette tar tid. For studiene (Gomez, 2020. Breil, 2010) var det ikkje samme strenge krav for nivået til forsøkspersonene, men dei trengte å være trente innenfor den sporten den utvalgte popolasjonen dei sikta etter. I dette tilfelle alpinister og løperar. Slike tester er også kostbare og ikkje alltid så lette å gjennomføre, som igjen gjer det vanskelig å ha eit stort utvalg.
+
+Desse utvalgte studiene inneholdt mellom 15-21 deltakere, som vart delt inn i dei to ulike treningsintervensjonene per studie. Dette er ikkje særlig stort utvalg for å danne eit grunnlag for ein statistisk sterkt forskningsprosjekt, men er sansynlig vis grunnet utfordingene som er diskutert tidligere. I slike tilfeller er det mulighet for å gjennomføre fleire testperioder etter kvarandre eller ha eit samarbeid med fleire forskningsprosjekt for å utvide utvalgsstørrelsen. 
+
+Dei utvalde studiene inkluderte mellom 15-21 deltakarar (sjå [Tabell 1](#tabell1)), fordelt på to ulike treningsintervensjoner i kvar studie. Sjølv om dette gir ein mulegheit til å samanlikne grupper, er det ein relativt liten utvalgsstørrelse som kan begrense den statistiske styrken og mulegheiten til å oppdage mindre, men reelle  forskjeller mellom intervensjonene. Statistisk styrke avhenger av utvalgstørrelse, effektstørrelse, og signifikansnivå, og med små utvalg auker risikoen for type II-feil, altså at ein ikkje klarer å påvise ein effekt som faktisk eksisterer. 
+
+
+
+```{r}
+#| label: "Tabell 1"
+#| warning: false
+#| message: false
+#| echo: false
+
+# Lag en tabell manuelt med data.frame
+studier_tabell <- data.frame(
+  Studie = enc2utf8(c("(Breil, 2010)", "(Gomez, 2020)", "(Hebisz, 2021)", 
+                      "(Rønnestad, 2012a)", "(Rønnestad, 2012b)")),
+  Utvalgsstørrelse = c(21, 16, 20, 19, 15)
+)
+
+# lage HTML-tabellen
+library(knitr)
+kable(studier_tabell, caption = "Oversikt over studier og utvalgsstørrelser.")
+
+
+```
+
+Fleire av studiene begrunner ikkje eksplisitt sine utvalgstørrelser, noko som kan skyldast praktiske utfordringer som rekruttering av deltakarar eller ressursbegrensinger, som tidlegare nevnt. for å kompansere for små utvalg kan forskere i framtidige studier vurder å gjennomføre fleire testperioder eller samarbeide på tvers av prosjekter for å auke utvalgstørrelsen og dermed styrken i analysene. slike tiltk vil bidra til meir robuste og generaliserbare resultat.
+
+Forskningsprosjektene inneholderforskjellige variabler, som er enten avhengige eller uavhengige. Studiene (Rønnestad, 2012a. Rønnestad, 2012b. Hebisz, 2021, Gomez, 2020) inneheld to nivåer av uavhengig variabler. Der den eine av dei er felles, blokkperiodisering. Den andre variabelene er tradisjonell trening i (Rønnestad, 2012a. Rønnestad, 2012b), reverse training periodisering i (Gomez, 2020) og polarized training periodisering i (Hebisz, 2021). Den siste studien (Breil, 2010) hadde kun blokkperiodisering som uavhengig variabel. Desse variablene har da forskerene manipulert for å skape ein effekt på utfallet.
+
+Den felles avhengige variablen i alle studiene er VO2max testen. Dette er er meget relevant og tar ein stor del i hypotesene/spørsmålene som blir lagt fram i  introduksjonene. Videre har (Rønnestad, 2012a. Rønnestad, 2012b. Hebisz, 2021) fleire like avhengige variabler som maksimal aerob power og ventilær terskel. (Rønnestad, 2012a. Rønnestad 2012b) har fleire variabler som styrker deres studie, nemlig hemoglobinmasse test og en 40min prestasjonstest. Desse ekstra prestasjons variablene gir forskningsstudienene enda fleire resultat som kan bli analysert og føre til signifikante funn. 
+
+I studiene (Gomez, 2020. Breil, 2010) er det andre målemetoder for prestasjon som er de avhengige variablene, dette grunnet at forsøkspersonene trener spesifikk for ein annan idrett. Her har likevell begge brukt svikthopp som en målemetode som prestasjon, men (Breil, 2010) hadde med fleire tester innenfor samme kategori, nemleg squatjump der dei får med seg dataen for jump peak power. Dette vill gi dei meir viktig data som kan seie noko om dei fysiologiske endringane i dei forskjellige gruppene. I løpestudien (Gomez, 2020) er 10km perstasjonstest samt en laktatterskel også ein del av testingen. 
+
+## Statistiske Metoder
+
+(Breil, 2010) - To-halet student t-test
+(Rønnestad, 2014a) - Uparet student t-test
+(Rønnestad, 2014b) – Uparet student t-test
+(Hebisz, 2021) – Scheffe post-hoc test
+(Gomez, 2020) – Paret stikkprøve t-test
+
+Studiene har benytta ulike statistiske tester for å analysere sin data og belyse resultata sine. Ei rekke studier har anvendt t-tester for å vurdere forskjeller mellom grupper eller tilstander i sine respektive ekseprimenter, noko som har bidrege ei presis vurdering av deira hypoteser og spørsmål fra innledningen.
+
+I studien (Breil, 2010) blei ein to-halet student t-test benytta. Denne testen brukes dersom ein ynskjer å teste forkskjeller mellom to grupper utan å anta kva retning forskjellen vil gå. I dette tilfellet undersøkte forskarane om det var signifikant forskjell mellom to forskjellige gruppene, blokkperiodiseringsgruppa kontra kontrollgruppa, utan å fortsei om den eine gruppa nødvendig vis ville ha strørre progresjon en den andre. 
+
+I Rønnestad (2012a-b) sine to studier blei det benytta uparet student t-tester i begge studiene. Upara t-tester brukast når ein samanlikner to uavhengige grupper, som i dette tilfelle blei utsett for blokkperiodisering og tradisjonell trening. Ved å bruke denne testen kan forskarane vurdere om det er ein signifikant forskjell mellom desse to uavhengige gruppene. 
+
+Hebisz (2021) brukte en Scheffé post-hoc test, som er en mer konservativ metode for å identifisere spesifikke forskjeller mellom grupper etter at en ANOVA (analyse av varians) har indikert en signifikant effekt. Scheffé-testen reduserer sjansen for Type I-feil (falske positive), som kan oppstå når flere parvise sammenligninger gjennomføres.
+
+Studien (Hebisz, 2021) brukte en Scheffé post-hoc test, som er ein meir konservativ metode for å identifisere spesifikke forskjeller mellom grupper etter at ein ANOVA (analyse av varians) har indikert ein signifikant effekt. Scheffé-testen reduserer sjansen for ein type-1 feil, altså falske positive, som kan oppstå dersom fleire parvise sammanlikninger gjennomføres
+
+(Gomez, 2020) gjennomførte ein paret stikkprøve t-test, som er egna når same gruppe testes under to forskjellige forhold eller tidspunkter. Paret t-test samanlikner resultata innan ei gruppe i studier der ein ønsker å undersøke endringar hos dei samme deltakarane etter intervensjonen, som her var forskjellige treningsintervensjoner. Denne testen var da brukt i begge gruppene, blokkperiodiseringsgruppen og reverse training gruppen. 
+
+## Resultater
+
+
+(Breil, 2010) Denne studien undersøkte effekten av blokkpresiodisering av høgintensitetsintervaller på VO<sub>2max</sub> og prestasjon hos elite junior alpinister. Her fant dei signifikante forbedringer i VO<sub>2max</sub> på 6% (P < 0.01; herrene +7.5%, kvinnene +2.1%) i blokkperiodiseringsgruppen kontra kontrollgruppen. Dei fann også ei øking av prestasjon i svikthopp hos dei mannlege deltakarane med ein økning på (4.9%, P < 0.05), likevell fallt den eksplosive hopp-poweren i deltakarane (CMJ -4.8%, SJ -4.1%; P < 0.01), som potensielt skylder muskel tretthet. Resultatene adresserer effektivt hypotesen, som viser at ein høgintensitetsblokk kan forbedre den aerobe kapasiteten og prestasjonen, men at dette kan føre til ein lavare eksplosiv styrke i etterkant. 
+
+I studien (Hebisz, 2021) som undersøkte effekten av blokkperiodisering og polarized treningsprogram på VO<sub>2max</sub> samt prestasjon på mountain sykkelister. Her oppnådde begge gruppene en signifikant øking i VO<sub>2max</sub> og power i prestasjonstestene både hos blokkperiodiseringsgruppen (fra 3.75 ± 0.67 til 4.00 ± 0.75 L∙min−1) og polarized treningsprogram gruppen (fra 3.66 ± 0.73 til 4.20 ± 0.89 L∙min−1), men den polarized treningsgruppen viste ein litt større øking i VO2max en blokkperiodiseringsgruppen. Poweren under prestasjonstestene hadde samme framgang i begge gruppene. Desse funnene adresserte studien sin hypotese med at begge treningsintervensjonene kunne auke aerop kapasitet, men at et poarized treningsprogram kan være meir effektivt for VO2max auking. 
+
+(Gomez, 2020) denne studien samanligna effekten av blokkperiodisering og reversed periodisering på aerobe og anaerobe prestasjoner over 12 uker hos trente utøvarar. Begge gruppene oppnådde signifikante forbedringer i aerob kapasitet. Reversed periodiseringsgruppen auka VO<sub>2max</sub> (p = 0,004; ES = 0,47), hastigheit ved VO<sub>2max</sub> (p = 0,001; ES = 1,07), og hjartefrekvens ved ventilasjonsterskel 1 (VT1) (p = 0,046; ES = 0,57) og 2 (VT2) (p < 0,001; ES = 1,32). Blokkperiodiserings gruppen viste liknande forbetringer, inkludert ei auke i VO<sub>2max</sub> (p = 0,004; ES = 0,51), hastigheit ved VO<sub>2max</sub> (p = 0,016; ES = 0,92), og hjartefrekvent ved VT2 (p = 0,023; ES = 0,78).
+
+Ein viktig forskjell var effekten på anaerob kapasitet, der kun reversed periodsierings gruppen forbetra sprinttider i sprinttesten (gjennomsnittlig sprinttid: p = 0,009; beste sprint: p = 0,019; totaltid: p = 0,009). Begge gruppene forbetra power  i svikthopp-testen (RP: p = 0,044; ES = 0,6, BP: p = 0,001; ES = 0,75), og hematologiske verdier ble opprettholdt. Samlet sett kan både bollkperiodisering og reversed periodisering effektivt for å auke aerob kapasitet og hoppytelse, med en ekstra anaerob fordel for reversed periodisering.
+
+Studien (Rønnestad, 2012a) undersøkte effekten av to forskjellige metoder for organisering av utholdenhetstrening hos trente sykkelister. Blokkperiodisering og tradisjonell treningsopplegg, med samme volum av trening. Effekten vart målt i VO<sub>2max</sub> og prestasjonstester på ergometersykkel. Resultatene indikerte signifikante forskjeller mellom dei to tilnærmingene. Blokk periodisering førte til ein signifikant økning i VO<sub>2max</sub> med 4.6 ± 3.7%, peak power output med 2.1 ± 2.8%, og power output ved 2 mmol/L laktat med 10 ± 12%, alle med P-verdier mindre enn 0.05. I kontrast opplevde gruppen som fulgte den tradisjonelle treningsmetoden ingen signifikante endringer i disse ytelsesmålene.
+
+Vidare viste effektstørrelsene store til moderate forbedringer for blokkperiodiserings gruppen samanlikna med tradisjonelle gruppen, med effektstørrelse på henholdsvis 1.34 for VO<sub>2max</sub>, 0.85 for Wmax, og 0.71 for power output ved 2 mmol/L laktat. Desse funnene støtter hypotesen om at blokkperiodisering gir betre fysiologiske tilpasninger, til tross for at begge gruppene gjennomførte liknande treningsvolum og intensitet. Studien antyder at ein strukturert tilnærming med høgintensive treningsøkter i blokk kan optimalisere ytelsen hos trente utholdenhetsutøvere meir effektivt enn ein mer tradisjonell tilnærming.
+
+Hovudresultata i studien (Rønnestad, 2012), der dei undersøkte effekten av blokkperiodisering av høgintensitets- og lavintensitetstrening på godt trente sykkelister, viste også at blokkperiodisering førte til større forbetringer i sentrale utholdenheits- og prestasjonsmål samanlikna med tradisjonell trening over ein periode på 12 veker, til tross for likt treningsvolum. Blokkperiodiserings gruppen oppnådde ein signifikant høgare relativ forbetring av VO<sub>2max</sub> (8,8 % vs. 3,7 %, med p-verdi < 0,05) en den tradisjonelle treningsgruppa. Det var også ein tildens til større øking i effekt ved 2 mmol/L laktat (22 % i Blokk vs. 10 % i tradisjonell), som nerma seg statistisk signifikans (p = 0,054). Effektstørrelsen for forbedringer i VO<sub>2max</sub>, effekt ved 2 mmol/L laktat, hemoglobinmasse og gjennomsnittleg effekt under ein 40 minutters maksimaltest viste moderate, fordelaktige effekter av blokkperiodiseringsgruppa samanlikna med tradisjonell gruppe, med effektstørrelse verdier fra 0,62 til 1,12.
+
+Desse resultata besvarar hypotesa i studien ved å vise at blokkperiodisering gir større forbetringar i utholdenheits- prestasjonsmarkører en tradisjonell trening. Funna tyder på at blokkperiodisering er ein meir effektiv treningsmetode for å forbetre utholdenheitskapasitet, noko som er i tråd med studiens formål om å samanlikne effekten av ulike periodiseringsmulegheiter på trening for godt trente sykkelister.
+<p>
+
+## Konklusjon
+
+I denne raporten har eg analysert fem studier som på forskjellige måter undersøkte effekt av blokkperiodisering, som har gitt verdifull innsikt i adaptasjonene denne treningsmetoden kan gi på prestasjon i utholdenhetsidretter.i analysen hareg prøvd å avdekke både styrker og svakheiter i studiene. Dersom er skal rekomendere noe til kommende studier som skal bli solide og gi pålitelige resultater er det fleire viktige elementer som bør vurderast
+
+For det første er det essensielt å gjennomføre ein powertest for å bestemme det nødvendige antall deltakere. Dette er avgjerande for å sikre at studien har tilstrekkeleg statistisk styrke til å oppdage betydelege effekter. Utan tilstrekkeleg prøvestørrelse kan resultata bli skeivfordelt, noko som kan føre til misvisande konklusjoner. Det anbefalast difor å brukestatistiske verktøy og programvare for å estimere det optimale antallet deltakare basert på forventa effektstørrelser og varians i dataene
+
+Vidare er det viktig å etablere eit representativt utvalg av deltakarane. Dette kan oppnås ved å sette klare standarder for deltakelse, slik at utvalget reflekterer den relevante populasjonen. For eksempel, dersom studien fokuserer på elitesykkelister, må kriteriane for deltakelse være strenge nok til å inkludere utøvere med tilsvarende ferdigheiter og erfaring. Ein veldefinert deltakergruppe vil ikkje berre styrke studiens generliserbarheit, men ogsp gi meir påliteleg data om treningsmetodens effekt. Dette sett krav til at treningsprogrammet bør være skreddersydd for populasjonen og tilpassa dei spesifikke testane som skal utførast. Dette inkluderer å velge fysiologiske tester og prestasjonstester som er relevante for deltakarane og deir målsetning. For å forbedre dei fyiske eigenskapene som ønskes, er det avgjerande å inkludere tester som nøyaktig evaluerer dei aspekta som er i fokus, som for eksempel utholdenheit, styrke eller sesifikke idrettsprestasjoner.
+
+I tillegg bør det alltid være ei kontrollgruppe i studier av blokkperiodisering for å kunne sammenligne resultata. Krontrollgruppa kan gi ei bedre forståelse av effekten av intervensjonen ved å eliminere andre variabler som kan påverke resultata. Å a ei kontrollgruppe styrker interne validiteten til studien og bidreg itl å isolere effekten av blokkperiodiseringa fra andre faktorer
+
+Til slutt er det viktig å inkludere ei rgundig vurdering av datainnsamling og analysemetoder. For å oppnå pålitelege resultater, bør forskere være oppmerksome på valg av statistiske analyser som best kan svare på froskningsspørsmåla. I tillegg er det avgjerande å rapportere metodene og resultatene på ein klar og tranparent måte, slik at forksere kan repoodusere studien.
+
+Ved å ta hensyn til desse aspekta kan framtidige forskningsprosjekter på blokkperiodisering bli betre rusta til å gi verdifulle innsikter som kan bidra til optimalisering av treningsmetoder for idrettsutøvere og mosjonister. Ein systematisk tilnærming til forksninsdesign, deltakerutvalg og datainnsamling vil uten tvil heve kvaliteten på studiene og styrke validiteten av funna.
+
+
+
+
+
+
+
+

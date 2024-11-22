@@ -1,0 +1,189 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+echo: false
+csl: resoures/apa.csl 
+---
+# Assignment 1: Reliabilitet
+
+## Introduksjon
+
+Reliabilitet er eit sentralt begrep innan treningsfysiologi og medisin, og er eit utrykk for dataens nøyaktigheit og stabilitet (@Befring, 2020, s.43). For både forskning og klinisk praksis er det essensielt at metoder og verktøy gir stabile resultater over tid, under lke forhold og på tvers av forskjellige individer. Innan treningsfysiologi kan ustrekkeleg reliabilitet føre til feilaktige vurderinger av treningsutvikling, som igjen kan resulteras i eit treningsopplegg som ikkje er optimalisert til ein persons prestasjonsnivå. Dette kan føre til ein lavare framgang for individets perstasjon. Behovet for høg reliabilitet tilseier at det er ønskeleg å ha flest muleg strukturerte registrerings- og målingsregler, med fastlagte svarkategorier under datainsamlinga (@Befring, 2020, s.47).
+
+## Metode
+
+### Gjennomføring av VO<sub>2max</sub>-test
+ 
+
+VO<sub>2max</sub>-testen som skal gjennomførast, startar på ein forhandsbestemt wattmotstand. For kvart minutt i testen auker wattmotstanden, denne auken er også forhandsbestemt avhengig av nivået til deltakaren. VO<sub>2max</sub>-målingen skjer kvart 30 sekund, men deltakaren blir bedt om å sykle så lenge deltakaren klarer. Dersom deltakaren er ein god sykkelist, vill auken være større. Deltakaren skal sykle heil til ein ikkje klarar meir, eller at tråkkfrekvensen går under 60 rotasjoner per minutt. Deltakaren skal holde seg sittende på sykkelsetet under heile testen, for å hindre teknikk-støy.
+
+
+Deltakaren får informasjon om kor lenge ein har sykkla undervegs i testen, kva wattmotstand ein ligg på samt når neste auke kjem. Deltakaren får derimot ingen informasjon om kva VO<sub>2max</sub> som blir målt under testen.
+
+
+Testledaren vil mot slutten av teste bidra til å pushe testdeltakaren slik at deltakaren får ut den den er god for, her kan pushinga variere fra testleder til testleder så pushingen skal være så konsekvent som mogleg. Testen er også ein prestasjonstest, og sjølve tiden blir registrert sjølv om deltakaren ikkje når neste VO<sub>2max</sub>-måling. Etter at testen er ferdig, blir deltakaren spurt om kvar ein ligg på borg-skalaen for opplevd anstrengelse fra 6 - 20. Der 6 er avslappa tilstand og 20 er maksimal anstrengelse. 60 sekunder etter endt test, skal testleder ta laktatmåling på deltakaren, La<sub>max</sub>. Etter prøven er teken, noterer testlederen ned kor lenge deltakaren sykla, La<sub>max</sub>, opplevd anstrengelse og relevant data fra Vyntus-systemet.
+
+
+
+
+### Standardisering
+
+
+For standardisering av matinntak, skulle deltakaren ha sitt siste måltid 2 timer før teststart. Det er tillete å innta eit mindre karbohydratrikt måltid (f. eks. gel, energibar) seinast 30 min før teststart. Deltakarane vart oppfordra til å forsøke å holde lik døgnrytme gjennom testperioden, samt å ikkje gjennomføre hard trening på underekstremitetene dagen før test. Koffeininntaket skulle være likt på alle testdagane.
+
+Oppvarminga varte i 5 minutt, der deltakarane sykla med aukande wattmotstand i intervallar. Eksempelvis 2 minutt på 140w, 2 minutt på 170 watt og 1 minutt på 215watt, dette vart tilpassa nivået til deltakaren.
+
+
+Alle VO<sub>2max</sub>-testene hadde lik Testprotokoll. eit eksempel på testprotokoll er ein start på 200w, der aukingane kvart minutt var 20watt. Her blei individuell tilpassing gjennomført.
+
+### Validering 
+
+
+Resultata våre kan bli påverka av både tekniske og biologiske faktorar. Ved hjelp av vår detaljerte testprosedyre, vil me ha ein lavare sansynligheit for at dette skal forekomme. Målet med dette er å redusere variasjoner og sikre at resultata måler det me er ute etter og ikkje blir påverka for mykje av yttre faktorer
+
+Sjølv om det leggest vekt på å begrense forekomsten av målefeil, vill større eller mindre feil være involvert i alle former for målinger (@Befring, 2020, s.44)
+
+
+## Resultater
+
+```{r}
+#| message: false
+#| echo: false
+#| warning: false
+
+library(readxl)
+library(tidyverse)
+library(gt)
+library(magrittr)
+
+
+df_all <- read_xlsx("plot_data_all_gr.xlsx") |> 
+  mutate(w.max = as.numeric(w.max), 
+         la.max = as.numeric(la.max), 
+         hr.max = as.numeric(hr.max), 
+         rer.max = as.numeric(rer.max))
+  
+```
+
+
+
+```{r}
+#| warning: false
+#| message: false
+#| echo: false
+#| label: fig-w.max
+#| fig-cap: "Watten testdeltakerene holdt dei siste 30 sek av testen ved de ulike tidspunktene"
+
+
+watt_deltaker_plot <- ggplot(data = df_all, 
+      aes(id, 
+          w.max, 
+          group = timepoint,
+          color = timepoint)) +
+  geom_point(size = 4, shape = 20) +
+  scale_y_continuous(limits = c(200, 475), 
+                     breaks = c(200, 250, 300, 350, 400, 450)) +
+  scale_x_discrete(labels = c("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16")) +
+
+  labs(x = "Testdeltakere", 
+       y = "Gj.Maks-watt (SD) (W)",
+       color = "Tidspunkt") +
+  theme_minimal() +
+   theme(
+    text = element_text(family = "Arial", size = 12),
+    axis.text = element_text(size = 12),
+    axis.title = element_text(size = 12, face = "bold"),
+    legend.title = element_text(size = 12, face = "bold"),
+    legend.text = element_text(size = 12))
+
+watt_deltaker_plot
+
+```
+
+
+
+```{r}
+#| warning: false
+#| message: false
+#| echo: false
+#| tbl-cap: "Gj.snitt og st.avvik for watt-maks ved dei ulike tidspunkta"
+#| label: "snitt og standardavvik for watt-maks ved dei ulike testtidspunktene"
+
+library(kableExtra)
+
+tab_watt <- df_all |> 
+  select(id, timepoint, w.max) |> 
+  pivot_longer(names_to = "names", 
+               values_to = "tall", 
+               cols = w.max) |> 
+  summarise(.by = c(timepoint, names), 
+            m = mean(tall, na.rm = TRUE), 
+            sd = sd(tall, na.rm = TRUE)) |> 
+  mutate(m_sd = paste0(signif(m, 3), " (", signif(sd, 3),") ")) |> 
+  ungroup() |> 
+  select(-m, -sd) |> 
+  pivot_wider(names_from = names, 
+              values_from = m_sd) |> 
+  kable(format = "html",
+        col.names = c("Tidspunkt", "Gjennomsnittlig Watt-max"),
+    caption = "Tabell for gjennomsnittlig Watt-maks verdier og st.avvik.",
+    align = "c") |> 
+  kable_styling(bootstrap_options = c("striped", "hover"),
+    full_width = TRUE,  
+    position = "center") |> 
+  footnote(general = " ", 
+           general_title = "")
+
+tab_watt
+
+```
+
+
+
+```{r}
+#| warning: false
+#| message: false
+#| echo: false
+#| tbl-cap: "Summerende statistikk"
+#| label: "Sammenlikner t1 og t2 og ser på gj.snittsverdi, st.avvik, typ. error og coeff. of variation av variabelen w.max"
+
+dat <- df_all |> 
+  #velger dei variablene me ynskjerker å sjå på
+  select(id, timepoint, w.max) |> 
+  # nytter pivot_wider for å lage !tidy-data, nå ser me eks id_01 sin w.max ved timepoint == t1 osv.
+  pivot_wider(names_from = timepoint, 
+              values_from = w.max) |> 
+#så vil me sjå  på typical error og regne på reliabilitet. Muterer så me får ein verdi som er differansen mellom t2 og t1
+  mutate(diff = t2 - t1) |> 
+  #summarise tar veridene i kolonnene til t1 og t2 og regner snittet av dei, samt standardavviket
+  summarise(m = mean(c(t1, t2), na.rm = TRUE), 
+            s = sd(diff, na.rm = TRUE), 
+            te = s / sqrt(2), 
+            cv = te/m * 100)
+
+mean_watt_max <- round(dat$m, 1)
+sd_watt <- round(dat$s, 1)
+te <- round(dat$te, 1)
+cv_perc <- round(dat$cv,2)
+
+mean_and_sd <- paste0(mean_watt_max, " (", "\u00B1" , sd_watt, ")")
+
+tab_sum_stat <- dat |> 
+  kable(format = "html", 
+        caption = "Summerende statistikk",
+        col.names = c("Gj.snitt", "St.avvik", "Typisk feil", "Variasjonskoeffisient"), 
+        digits = 2,  
+        align = "c") |> 
+  kable_styling(bootstrap_options = c("striped", "hover"), 
+                full_width = TRUE, 
+                position = "center") |> 
+  footnote(general = " ", 
+           general_title = "")
+
+```
+
+Den gjennomsnittlige watt-verdien som testdeltakerne held dei siste 30 sekundene av VO<sub>2max</sub>-testen var `r mean_and_sd` og den typiske feilen ble målt til `r te`. Den typiske feilen gir oss eit mål på presisjonen i målingane. Denne feilen reflekterer variasjonen som kan oppstå i gjentekne målinger, og gir oss ei innsikt i påliteligheita av testprosedyren (@Befring, 2020, s.46)
+
+## Referanseliste
+- Befring, E., (2020). Sentrale forskningsmetoder - med etikk og statistikk. Cappelen damm akademisk. kapittel 4.

@@ -1,0 +1,678 @@
+---
+title: "Assignment 5"
+
+format: html
+execute:
+  echo: true
+  error: true
+---
+
+## introdukjson
+
+
+Styrketrening er ein essensiell komponent i treningsprogrammer for å forbetre fysisk styrke, muskelmasse og generell helse (@Wisnes et al., 2010, s. 185). Ved å trene styrke kan både nybegynnere og erfarne utøvere oppnå betydelege forbetringer i muskelfunksjon og kroppsamansetning (@Raastad et al., 2010, s. 37). Dette bidreg til ei økt prestasjonsevne og redusert risiko for fleire potensielle helseproblem (@Westcott, 2012). Menneskekroppen har ein unik egenskap til å adaptere seg til belastning fra omgivnaden. Skjelettmusklaturen tilpassar seg stimuli som blir påført musklatruen (@kreamer, 2005. @Raastad et al., 2010, s. 37).  Innan feltet for styrketrening, er det fleire faktorer som bestemmer tilpassningene som forekommer i musklaturen. Treningsvolum, intensitet og frekvens er nokon av desse faktorane og har direkte innvirkning på muskulærstyrke og fettfri muskelmasse (@Raastad et al., 2010, s. 17). Eit lavt volum av dette vil gi gode adaptasjoner i skjelettmusklaturen der eit optimalisert volum ofte kan føre til større muskulær tilpasning og øking i styrke (@Schoenfeld, 2017. @Grgic, 2018. @Ruple et al. 2023). 
+
+Treningsvolum refererer til den totale mengden arbeid utført i løpet av ei treningsøkt eller over ein lengre treningsperiode, og kan måles i antall sett og repetisjoner multiplisert med belastninga (@Raastad et al., 2010, s. 17). Dette er ein av dei mest sentrale faktorane innan styrketrening, ettersom det totale volumet kan påverke korleis kroppen tilpassar seg treningen, med tanke på muskelvekst og styrkeutvikling (@Burd et al. 2010). Muskelmasse, omfatter feittfri kroppsmasse, inkludert musklaturen, og er eit viktig mål for å vurdere effekten av trening på kroppsammensetningen. Muskelstyrke beskriv derimot muskelens evne til å generere kraft, og representerer ei anna kritisk faktor for fysisk ytelse og funksjonsevne. 
+
+Ei forståing av korleis treningsvolum påverker treningsresultata for å optimalisere treningsprogrammer er viktig å forstå for både forskarar, trenarar og utøvarar fra forskjellige idretter. Ved å kartlegge effekten av treningsvolum kan me tilpasse treningsplaner til individuelle behov og målsetninger, og potensielt identifisere spesifikke rettningslinjer som maksimerer styrkeutvikling og muskelvekst.
+
+Denne studien har som mål å undersøke korleis ulike nivå av treningsvolum påverker auking i muskelmasse og muskelstyrke hos deltakerne. Spesifikt søker me å besvare følgende forskningsspørsmål: påverker ei auke i treningsvolum aukinga i muskelmasse og muskelstyrke? Dette spørsmålet gjev grunnlag for å vurdere om eit større treningsvolum her ein betydeleg effekt på treningsresultata samanlikna med eit mindre volum, og gjev innsikt i korleis ein kan tilpasse treningsopplegg basert på individuelle treningsmål og fysiologiske forutsetningar.
+
+
+## Metode
+
+
+### Deltakarar
+
+i denne studien blei 34 friske ikkje-røykande, utrente deltakarar (16 menn, 23,6 ± 4,1 år; 18 kvinner, 22,0 ± 1,3 år) rekruttert for å undersøke effekten av ulikt treningsvolum på muskelmasse og styrke over ein periode på 12 veker. Deltakarane har tidligare idrettsbakgrunn fra forskjellige idretter og måtte ha gjennomført minst 1 styrkeøkt i veka dei siste 12 månadane for å kunne delta i prosjektet. Sju deltakarar blei eksludert fra data analysen grunna at dei ikkje detlok på over 85% av treningsøktene.
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: Deltakere
+#| tbl-cap: "Beskrivelse av deltakere"
+#| fig-cap: Tabell 1
+
+
+library(tidyverse); library(exscidata);
+library(gt)
+
+exscidata::dxadata %>%  
+  filter(time == "pre",
+         include == "incl") %>% 
+  select(participant, sex, age, height, weight) %>% 
+  pivot_longer(names_to = "variable",
+               values_to = "value",
+               cols = age:weight) %>% 
+  summarise(.by = c(sex,variable),
+            m = mean(value),
+            s = sd(value),
+            n = n()) %>% 
+  mutate(sex = if_else(sex == "male",
+                       "Mann", "Kvinne"),
+    sex = paste0(sex, " n =", n),
+         stat= paste0(round(m,1),
+                      "(",
+                      round(s,1),
+                      ")")) %>% 
+  dplyr::select(sex,variable, stat) %>% 
+  pivot_wider(names_from = variable,
+              values_from = stat) %>% 
+  gt() %>% 
+  cols_label(sex = "Kjønn",
+             age = "Alder",
+             height = "Høgde (cm)",
+             weight = "Vekt (kg)") 
+  
+
+
+
+
+
+```
+
+
+Deltakarane skulle gjennomgå ein treningsintervensjon gjennom 12 veker. Her blei treninga gjennomført både på overkropp og bein. Treninga blei gjennomført i eit kontralateralt design for å oppnå ei differensiering. Kvar deltaker utførte moderat (Multiple) treningsvolum (3 sett per øvelse) på eit tilfeldig bein og lavt (single) treningsvolum (1 sett per øvelse) på det andre beinet. Deltakarane gjennomførte treningsøktene 2-3 gonger per veke. Før oppstart av studien og etter 12 uker blei muskelstyrke og muskelareal målt for å evaluere treningsresponsen.Muskelbiopsier fra muskelstyrke og muskelareal målt for å evaluere treningsresponsen. Muskelbiopsier fra Vastus lateralis blei også tatt både ved baseline og etter den femte treningsøkten (veke 2), samt ved slutten av studien. 
+
+  
+### Treningsprotokoll
+
+Oppvarmingen starta med 5min på ergometersykkel, etterfulgt av 10 repetisjoner av kvar kroppsvektsøvelse (armhevinger, sit-ups, rygghev og knebøy) og til slutt 10 repetisjoner med 50% av 1RM for kvar styrkeøvelse (bilateral-beinpress, leg curl, lårspark, bilateral-benkpress, skulderpress eller sittende roing)
+
+Sjølve styrketreninga besto av øvelser for bein og overkropp. Beinøktene inkluderte bilateral-beinpress, lårcurl og lårspark. Avhengig av kva gruppe deltakarane blei tildelt, utførte dei øvelsane med eit eller tre sett. Pausene varte mellom 90-120 sekunder. Det beinet som kun hadde eit sett gjennomførte det mellom det andre og tredje sette på det andre beinet. 
+
+Etter beinøvelsane fortsatte deltakarane med to sett av bilateral benkpress, nedtrekk og enten skulderpress eller sitjande roing, der kvar av desse to siste styrkeøvelsane varierte fra økt til økt. Etter ni treningøkter blei det lagt inn ei vekentleg lavintensitetsøkt, der like mange repetisjoner blei gjennomført, men kun med 90% av belastninga fra forrige økt. Etter denne litt lettare økta var det kun satt opp til 24 timer kvile, medan etter dei tyngre øktene var det satt opp 48 timers kvile.treningsintensiteten auka gradvis gkennom dei 12 vekene. dei 2 vørste vekene var det 10RM, etterfulgt av tre veker med 8RM og 7RM dei siste sju vekene. 
+
+```{r}
+#| echo: false
+#| label: fig-trening
+#| tbl-cap: "Studieoversikt med treningsfrekvens og RM"
+#| fig-cap: Figur med oversikt over treningsfrekvens og RM per veke
+library(ggplot2)
+
+# Dataframe som representerer treningsfrekvens og RM per uke
+data <- data.frame(
+  Uke = factor(1:12, levels = c(0, 1:12)),  # Spesifiser nivåene, inkludert 0
+  RM = c("10RM", "10RM", "8RM", "8RM*", "8RM", "7RM*", "7RM", "7RM", "7RM*", "7RM", "7RM", "7RM"),
+  Frekvens = c(2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 2, 1)
+)
+
+# Søylediagram som illustrerer studiedesign
+ggplot(data, aes(x = factor(Uke, levels = c(0, 1:12)), y = Frekvens)) +
+  geom_bar(stat = "identity", fill = "lightblue", color = "darkblue", width = 0.65) + 
+  # Endret farge på søylene
+  geom_text(aes(label = RM), vjust = -0.3, color = "darkred", size = 4.5) +  
+  
+  scale_x_discrete(limits = as.character(c(0, 1:12))) + 
+  # Setter rekkefølgen på x-aksen
+  scale_y_continuous(breaks = seq(0, 3.5, by = 0.5), limits = c(0, 3.5)) + 
+
+  labs(
+    x = "Uke",
+    y = "Treningsfrekvens"
+  ) +
+  theme_light(base_size = 14) +  # Endret til theme_light med større tekst
+  theme(
+    panel.grid.major = element_line(color = "grey80"),
+    panel.grid.minor = element_blank(),
+    axis.title.x = element_text(face = "bold", size = 14),
+    axis.title.y = element_text(face = "bold", size = 14)
+  )
+
+
+```
+
+
+For å bidra til restutisjon, fekk deltakarane ei standardisert restutisjonsdrikk etter kvar styrketreningsøkt. denne drikken besto av 1.2 g/kg karbohydrater, 0.15 g/kg protein og 0.5 g/kg feitt. Det blei lagt opp til at deltakarane kunne gjennomføre øktene på eigenhand, gitt at dei førte detaljerte loggbøker for å følge opp progresjon og innsats. Desse øktene blei evaluert av forskarane sammen med deltakarane i etterkant. Dette var også eit tiltak for å auke sansynlegheite for at deltakarane fortsatte med trening etter dei var ferdig med forskningsprosjektet. 
+
+### Måling av styrke i underekstremitetene
+
+Målingene for isokinetisk og isometrisk styrke i kneekstensorene blei målt i dynamometer (Cybex 6000) som deltakarane blei plasserte i. Her vart sittestillinga sikre slik at kneleddet var i linje med rotasjonsaksen til dynamometeret. Den isokinetiske styrken blei vurdert ved tre forskjellige hastigheiter  (60°, 120° og 240° per sekund). I forkant av testen gjennomførte deltakarane ein oppvarming som inkluderte tre submaksimale forsøk på kvar hastigheit. Deretter fek dei to forsøk på 60° per sekund, og tre forsøk på 120° og 240° per sekund, utført med lik pause mellom kvart sett. Den høgaste målte verdien på kvar hastigheit vart nytta i analysenene. Etter dei isokinetiske målingane blei isometrisk maksimal frivillig kontraksjon (MVC) testa ved ein knevinkel på 30°. Deltakarane blei instruert om å presse med maksimal kraft i 5 sekund, og fekk to forsøk med 30 sekunder kvile mellom. Her blei kun den høgaste verdien nytta i analyse.
+
+Muskelstyrken i underekstremitetene blei målt gjennom dynamisk styrketesting, spesifikt ved bruk av ein repetisjon maksimum (1RM), både ved starten av perionden og etter 12 veker. Denne metoden gav eit mål på maksimal styrkeendring i dei trente muskelgruppene, som er ein respons på ulikt treningsvolum. Vidare blei musklaturens tverrsnittsareal (CSA) vurdert gjennom bildediagnostikk for å registrere endringar i muskelmasse. Målingane blei gjort både ved baseline og etter den 12 veker lange treningsperioden, noko som gjorde det muleg å evaluere muskelhypertrofi som respons på både moderat og lavt treningsvolum. 
+
+### Måling av beinmusklaturens tverrsnitt
+
+Tverrsnittsarealet (CSA) for kneekstensorene, inkludert vastus lateralis, vastus medialis, vastus intermedius og rectus femoris. Desse blei målt med magnetisk resonanstomografi (MRI). Bildene blei analysert blinda av samme forsker for å minimere bias, og CSA blei satt på samme stad på låret både før og etter intervensjonen. Fire påfølgjande bileter med 5 mm tjukkelse og 10 mm mellomrom blei analysert for kvar deltakar. Kroppsamansetningen blei evaluert ved bruk av DXA-skanning, der både feittmasse og feittfri masse blei målt før og etter intervensjonen. For å standardisere målingane blei deltakarane bedt om å faste to timer og unngå fysisk aktivitet i 48 før kvar måling. Dette detaljnivået i gjennomføringen av testene og målingene sikret presisjon i dataene, slik at resultatane kunne vurderes påliteleg i vidare analyser.
+
+## Statistikk og dataanalyse
+
+Før eg utførte statistiske analyser, bearbeidet eg dataene for å sikre at dei var klare for analyse. Deltakere som ikkje oppfylte kriteria for analyse blei filtrert ut, manglande verdier blei fjerna, og koda om variabler som tid (pre og post) og treningsvolum (single og multiple sets) til faktorer. For enkelte analyser endra eg dataene frå lang til brei format, slik at endringer mellom pre og post kunne bli berekna.
+
+Gjennomsnitt og standardavvik (SD) blei nytta for å beskrive dataene, og t-tester for å sammenligne gruppene og tidspunktene. Resultata vises med gjennomsnittlege forskjeller og 95 % konfidensintervaller (CI) for å vise presisjonen, og p-verdier for å vurdere statistisk signifikans. Ef laga også figurer som linjediagram og boksplot for å visualisere endringer og fordelingen i gruppene multiple og single.
+
+
+## Resultater
+
+```{r}
+#| label: "lagre data og pakker"
+#| warning: false
+#| message: false
+#| echo: false
+#| output: false
+#| include: false
+
+
+
+leanmass <- dxadata %>%
+  select(participant:include, lean.left_leg, lean.right_leg) %>%
+  pivot_longer(names_to = "leg", 
+               values_to = "lean.mass", 
+               cols = lean.left_leg:lean.right_leg) %>%
+  mutate(leg = if_else(leg == "lean.left_leg", "L", "R"), 
+         sets = if_else(multiple == leg, "multiple", "single")) %>%
+  select(participant, time, sex, include, sets, leg, lean.mass) %>%
+  filter(include == "incl") %>%
+  
+  ## endre for time og set
+  mutate(time = factor(time, levels = c("pre", "post")), 
+         sets = factor(sets, levels = c("single", "multiple")), 
+         leg = paste0(participant, leg))
+  
+
+
+
+#lage data for volum
+# t-test
+leanmass_change_wide <- leanmass %>%
+  pivot_wider(names_from = time, values_from = lean.mass) %>%
+  mutate(change = post - pre) %>%
+  
+  select(participant, sex, sets, change) %>%
+  pivot_wider(names_from = sets, 
+              values_from = change) %>%
+  
+  mutate(diff = multiple - single)
+  
+ 
+
+
+## t-test 
+t_results <- with(leanmass_change_wide, t.test(multiple, single, paired = TRUE))
+
+
+
+pval <- round(t_results$p.value,3)
+
+tval <- round(t_results$statistic,2)
+
+df <- t_results$parameter
+
+cil <- round(t_results$conf.int[1],1)
+ciu <- sprintf("%.1f", round(t_results$conf.int[2],1))
+
+
+estimate <- round(t_results$estimate,1)
+
+
+lean.mass.results <- paste0(estimate,
+                            " (95 CI: [",
+                            cil,
+                            ",",
+                            ciu, 
+                            "], *P*-value = ",
+                            pval,
+                            ", t<sub>",
+                            df, "</sub> = ",
+                            tval,")") 
+
+
+```
+
+
+
+
+```{r}
+#| include: false
+#| label: "Formatted Tables with T-tests muskelmasse"
+library(knitr)
+library(kableExtra)
+library(dplyr)
+
+# Opprett data
+tibble_data <- tibble(
+  time = c("post", "post", "pre", "pre"),
+  sets = c("multiple", "single", "multiple", "single"),
+  mean_lean_mass = c(9048, 8938, 8713, 8722),
+  sd_lean_mass = c(2196, 2170, 2054, 2059),
+  n = c(39, 39, 41, 41)
+)
+
+# Separate grupper for t-test
+post_multiple <- rnorm(39, mean = 9048, sd = 2196)
+post_single <- rnorm(39, mean = 8938, sd = 2170)
+pre_multiple <- rnorm(41, mean = 8713, sd = 2054)
+pre_single <- rnorm(41, mean = 8722, sd = 2059)
+
+# Utføre t-testene
+post_t_test <- t.test(post_multiple, post_single)
+pre_t_test <- t.test(pre_multiple, pre_single)
+
+# tabell for t-test resultater
+t_test_results <- tibble(
+  time = c("post", "pre"),
+  t_statistic = c(post_t_test$statistic, pre_t_test$statistic),
+  p_value = c(post_t_test$p.value, pre_t_test$p.value)
+)
+
+# Formatering av tabeller
+kable(tibble_data, caption = "Lean Mass Summary by Time and Sets") %>%
+  kable_styling(full_width = FALSE, position = "left")
+
+kable(t_test_results, caption = "T-test Results for Lean Mass by Time") %>%
+  kable_styling(full_width = FALSE, position = "left")
+
+```
+
+
+
+
+
+```{r}
+#| include: false
+#| warning: false
+#| message: false
+#| echo: false
+#| label: dele inn i grupper
+#laste inn pakke
+library(tidyverse)
+
+# lage data for muskelmasse
+dxadataa <- dxadata %>%
+  select(participant:include, lean.left_leg, lean.right_leg) %>%
+  pivot_longer(names_to = "leg", 
+               values_to = "lean.mass", 
+               cols = lean.left_leg:lean.right_leg) %>%
+  mutate(leg = if_else(leg == "lean.left_leg", "L", "R"), 
+         sets = if_else(multiple == leg, "multiple", "single")) %>%
+  select(participant, time, sex, include, sets, leg, lean.mass) %>%
+  print()
+```
+
+```{r}
+#| include: false
+#| warning: false
+#| message: false
+#| echo: false
+
+# Konverter kolonner til riktige type
+dxadata1 <- dxadataa %>%
+  mutate(across(c(participant, time, sex, include, sets, leg), as.factor))
+
+```
+
+
+
+
+```{r}
+#| warning: false
+#| message: false
+#| echo: false
+#| label: p og t verdi lean mass pre-post
+
+# Deskriptiv statistikk
+summary_stats <- dxadata1 %>%
+  group_by(time, sets) %>%
+  summarise(
+    mean_lean_mass = mean(as.numeric(lean.mass), na.rm = TRUE),
+    sd_lean_mass = sd(as.numeric(lean.mass), na.rm = TRUE),
+    n = n()
+  )
+# T-test mellom 'single' og 'multiple' for muskelmasse efter 'time'
+ttest_results <- dxadata1 %>%
+  filter(time %in% c("pre", "post")) %>%
+  group_by(time) %>%
+  summarise(
+    t_test_p_value = t.test(
+      lean.mass[sets == "single"], 
+      lean.mass[sets == "multiple"],
+      paired = FALSE
+    )$p.value
+  )
+
+print(ttest_results)
+
+```
+
+
+
+```{r}
+#| warning: false
+#| message: false
+#| echo: false
+#| label: muskelmasse forbedring
+#| fig-cap: Figur 3. Oversikt over total endringer i fettfri muskelmasse fra pre til post
+
+# Endring rekkefølgen på 'time'
+dxadata1 <- dxadata1 %>%
+  mutate(time = factor(time, levels = c("pre", "post")))
+
+# linjediagram
+ggplot(dxadata1, aes(x = time, y = as.numeric(lean.mass), group = sets, color = sets)) +
+  stat_summary(fun = mean, geom = "line", size = 1.2) +
+  stat_summary(fun = mean, geom = "point", size = 3) +
+  labs(title = "Endringer i muskelmasse over Tid", x = "Tidspunkt", y = "Lean Mass") +
+  theme_minimal()
+
+```
+
+
+```{r}
+#| warning: false
+#| message: false
+#| echo: false
+#| label: figur lean mass 2
+#| fig-cap: Figur 4. Her ser me fordelingen av muskelmasse for single og multiple gruppene, pre og post treningsintervensjonen. Det er ingen signifikant forskjeller i muskelmasse mellom gruppene i pre (p = 0.986) eller post (0.825). Begge gruppene hadde en signifikant auke i muskelmasse i post (p = 0.05, t = -1.96).
+
+# Lage boksplot
+ggplot(dxadata1, aes(x = sets, y = as.numeric(lean.mass), fill = sets)) +
+  geom_boxplot() +
+  facet_wrap(~time) +
+  labs(title = "Lean Mass mellom Treningsvolum", x = "Treningsvolum", y = "Lean Mass") +
+  theme_minimal()
+
+```
+
+
+```{r}
+#| label: "Load packages and dataa"
+#| warning: false
+#| message: false
+#| echo: false
+#| output: false
+
+leanmass_change <- leanmass %>%
+  pivot_wider(names_from = time, values_from = lean.mass) %>%
+  mutate(change = post - pre) %>%
+  select(participant, sex, sets, change) %>%
+  pivot_wider(names_from = sets, 
+              values_from = change) %>%
+  mutate(diff = multiple - single)
+
+
+# Lineær regresjonsmodell
+m1 <- lm(diff ~ 1, data = leanmass_change)
+
+# Lagring av resultater
+m1pval <- round(coef(summary(m1))[1, 4], 3)
+m1est <- round(coef(summary(m1))[1, 1], 1)
+
+m1ciu <- round(confint(m1)[1,2], 1)
+m1cil <- round(confint(m1)[1,1], 1)
+
+# Kombiner resultatene i et objekt
+m1results <- paste0(m1est, 
+                    ", 95% CI: [",
+                    m1cil, 
+                    ", ",
+                    m1ciu, 
+                    "], p = ",
+                    m1pval
+                    )
+
+```
+
+
+
+
+```{r}
+#| echo: false
+#| label: tbl-des-styrke
+#| tbl-cap: "Deskriptiv data for styrke pre og post"
+#| fig-cap: Tabell 2. Her ser me ei oversikt over deskriptiv data for styrken til deltakarane både ved pre og ved post. verdiene er i gjennomsnittleg belastning samt med standardavvik.
+
+library(exscidata)
+library(tidyverse)
+library(ggplot2)
+library(gt)
+
+data("strengthvolume")
+
+# Filtrering av datasettet for beinpress
+strengthvolume_legpress <- strengthvolume %>%
+  filter(exercise == "legpress") 
+
+# Filtring av datasettet for lårspark
+strengthvolume_legext <- strengthvolume %>%
+  filter(exercise == "legext")
+
+# Filtrering for pre og post, og beregning av gjennomsnitt og standardavvik for `lårspark`
+deskriptiv_legext <- strengthvolume_legext %>%
+  filter(time %in% c("pre", "post")) %>%
+  group_by(time, sets, sex) %>%
+  summarise(
+    mean_load = mean(load, na.rm = TRUE),
+    sd_load = sd(load, na.rm = TRUE),
+    n = n()
+  ) %>%
+  mutate(exercise = "Lårspark")
+
+# Filtrering for pre og post, og beregne gjennomsnitt og standardavvik for `beinpress`
+deskriptiv_legpress <- strengthvolume_legpress %>%
+  filter(time %in% c("pre", "post")) %>%
+  group_by(time, sets, sex) %>%
+  summarise(
+    mean_load = mean(load, na.rm = TRUE),
+    sd_load = sd(load, na.rm = TRUE),
+    n = n()
+  ) %>%
+  mutate(exercise = "Beinpress")
+
+# Kombinering av begge tabellene til én
+deskriptiv_samlet <- bind_rows(deskriptiv_legext, deskriptiv_legpress)
+
+# Tilpassing av kjønn
+deskriptiv_samlet <- deskriptiv_samlet %>%
+  mutate(sex = recode(sex, "female" = "Kvinne", "male" = "Herre"))
+
+# Formater tabellen for pre og post
+tabell_deskriptiv <- deskriptiv_samlet %>%
+  dplyr::select(exercise, time, sets, sex, mean_load, sd_load) %>%
+  rename(
+    Exercise = exercise,
+    Time = time,
+    Sets = sets,
+    Kjønn = sex,
+    Mean_Load = mean_load,
+    SD_Load = sd_load
+  )
+
+#tabell
+tabell_deskriptiv %>%
+  gt() %>%
+  cols_label(
+    Exercise = "Øvelse",
+    Time = "Tidspunkt",
+    Sets = "Sett",
+    Kjønn = "Kjønn",
+    Mean_Load = "Gjennomsnittlig Belastning (kg)",
+    SD_Load = "Standardavvik (kg)"
+  ) %>%
+  fmt_number(
+    columns = c(Mean_Load, SD_Load),
+    decimals = 2
+  ) %>%
+  tab_options(
+    table.width = "100%",           
+    data_row.padding = 3,           
+    table.font.size = "small",      
+    heading.title.font.size = "medium",  
+    column_labels.font.size = "small"    
+  )
+
+```
+
+
+```{r}
+#| label: "Load packages and data"
+#| warning: false
+#| message: false
+#| echo: false
+#| output: false
+
+
+strengthvolume %>%
+  distinct(exercise)
+
+## lagre nytt objekt
+str_beinpress <- strengthvolume %>%
+  filter(exercise == "legpress",
+         include == "incl",
+         !is.na(load)) %>% 
+  mutate(time = factor(time, levels = c("pre", "post")),
+         sets = factor(sets, levels = c("single", "multiple"))) %>%
+  na.omit()
+
+benpress_m2 <- str_beinpress %>%
+  pivot_wider(names_from = time, values_from = load) %>%
+  mutate(change = post - pre) %>%
+  select(participant, sex, sets, change) %>%
+  pivot_wider(names_from = sets, 
+              values_from = change) %>%
+  mutate(diff = multiple - single) %>%
+  drop_na()
+
+# Beregne gjennomsnittet for 'single'
+avg_single <- mean(benpress_m2$single, na.rm = TRUE)
+
+# Beregne gjennomsnittet for 'multiple'
+avg_multiple <- mean(benpress_m2$multiple, na.rm = TRUE)
+
+# Beregne gjennomsnittet for snittet mellom 'single' og 'multiple'
+avg_diff <- mean(benpress_m2$diff, na.rm = TRUE)
+
+
+#prosentvis endring i 1rm beinpress
+str <- strengthvolume %>%
+  filter(exercise == "legpress", include == "incl") %>%
+  mutate(time = factor(time, levels = c("pre", "session1", "week2", "week5", "week9", "post"))) %>%
+  filter(!is.na(load))
+
+# multiple set
+str_multiple <- str %>%
+  filter(sets != "single")
+
+#  single set
+str_single <- str %>%
+  filter(sets == "single")
+
+avg_percent_increase <- str_single %>%
+  group_by(sets = "single") %>%
+  summarize(avg_percent_increase = round(((mean(load[time == "post"]) - mean(load[time == "pre"])) / mean(load[time == "pre"])) * 100, 1))
+
+avg_percent_increase_multiple <- str_multiple %>%
+  group_by(sets) %>%
+  summarize(avg_percent_increase = round(((mean(load[time == "post"]) - mean(load[time == "pre"])) / mean(load[time == "pre"])) * 100, 1))
+
+avg_percent_increase_table <- bind_rows(
+  avg_percent_increase,
+  avg_percent_increase_multiple
+)
+
+percent_difference <- avg_percent_increase_table %>%
+  spread(sets, avg_percent_increase) %>%
+  mutate(percent_difference = round(((multiple - single) / single) * 100, 1)) %>%
+  gather(key = "sets", value = "avg_percent_increase", -percent_difference) %>%
+  select(sets, avg_percent_increase, percent_difference) %>%
+  arrange(desc(percent_difference))
+
+print(percent_difference)
+
+#Tilpasse beinpress datasettet så det kan brukast i en lineær modell
+benpress_m2 <- str_beinpress %>%
+  pivot_wider(names_from = time, values_from = load) %>%
+  mutate(change = post - pre) %>%
+  select(participant, sex, sets, change) %>%
+  pivot_wider(names_from = sets, 
+              values_from = change) %>%
+  mutate(diff = multiple - single) %>%
+  drop_na()
+
+m2 <- lm(diff ~ 1, data = benpress_m2)
+
+summary(m2)
+
+
+m2pval <- round(coef(summary(m2))[1, 4], 3)
+m2est <- round(coef(summary(m2))[1, 1], 1)
+
+m2ciu <- round(confint(m2)[1,2], 1)
+m2cil <- round(confint(m2)[1,1], 1)
+
+m2results <- paste0(m2est, 
+                    ", 95% CI: [",
+                    m2cil, 
+                    ", ",
+                    m2ciu, 
+                    "], p = ",
+                    m2pval
+                    )
+```
+
+```{r}
+#| label: "Figur 2"
+#| warning: false
+#| message: false
+#| echo: false
+#| fig-cap: Figur 5. Endringar i 1RM beinpress ved lavt versus moderat treningsvolum (N = 34) fra pre treningsintervensjonen til post.
+
+## figur for styrkeendring i 1rm beinpress 
+
+str_beinpress %>%
+  filter(exercise == "legpress" & (time == "pre" | time == "post")) %>%
+  group_by(sets, participant, exercise, time) %>%
+  summarize(avg_load = mean(load)) %>%
+  ggplot(aes(x = time, y = avg_load, group = sets, color = sets)) +
+  geom_line() +
+  facet_wrap(~ exercise, scales = "free") +
+  theme_minimal() +  
+  labs(title = "1RM beinpress",
+       x = "Tidspunkt",
+       y = "Antall kg")
+
+```
+
+ 
+
+## Diskusjon
+
+Denne studien undersøkte effekten av to ulike treningsvolum, eitt sett versus tre sett, på muskelmasse og muskelstyrke. Resultata viste at begge gruppene opplevde ein signifikant auke i både muskelstyrke og muskeltverrsnittsareal etter treningsperioden. Likevel fann vi ingen statistisk signifikante skilnader mellom gruppene som utførte eitt sett og dei som utførte tre sett, verken når det gjaldt muskelstyrke eller muskelhypertrofi.
+
+Desse funna utfordrar den vanlege oppfatninga om at høgare treningsvolum alltid gjev betre resultat når det gjeld muskeltilpassing. Tidlegare forsking har ofte vist ein dose-respons-samanheng mellom treningsvolum og muskelvekst, der meir volum er knytt til større auke i både hypertrofi og styrke (Schoenfeld, 2017. Grgic, 2018. Ruple et al. 2023). Til dømes fann (@Schoenfeld et al., 2017) at eit høgare volum av styrketrening vil gi ein større respons.
+
+Ei mogleg forklaring på funna våre er at begge treningsvoluma var tilstrekkelege til å utløysa maksimale tilpassingar i løpet av den avgrensa treningsperioden. Det er mogleg at det finnast ein terskelverdi for kor mykje treningsvolum som er nødvendig for å stimulere muskelvekst og styrke, og at denne terskelen blei nådd med berre eitt sett i vår studie. Dette stemmer overeins med forsking som viser at også lågare treningsvolum kan vere effektive for muskelhypertrofi, spesielt hos utrente individ (@Grgic, 2018; @Schoenfeld2019).
+
+Begge gruppene betydelege forbetringar i muskelstyrke, men utan klare skilnader mellom deu ulike voluma. Grunna at treningsperioden som blei gjennomført var såpass kort, kan ha ført til at det var krevjande å oppdage forskjeller mellom gruppene, sidan store styrkeaukinger skjer tidlig i treningsfasen. 
+
+
+
+
+Denne studien undersøkte korleis to ulike treningsvolum – eitt sett samanlikna med tre sett – påverka muskelvekst og muskelstyrke. Resultata viste ein signifikant auke i både muskelstyrke og muskelmasse i begge treningsgruppene etter intervensjonsperioden. Likevel blei det ikkje avdekt statistisk signifikante forskjellar mellom gruppene som utførte eitt sett og dei som utførte tre sett, verken for styrke eller muskelhypertrofi.
+
+Funna stiller spørsmål ved den tradisjonelle oppfatninga om at større treningsvolum alltid resulterer i betre muskeltilpassingar. Tidlegare studiar har ofte peikt på ein dose-respons-samanheng, der auka volum er knytt til meir muskelvekst og styrkeforbetring (@Schoenfeld, 2017; @Grgic, 2018; @Ruple et al., 2023). Til dømes viste (@Schoenfeld et al., 2017) at eit større treningsvolum gav ein tydelegare respons når det kom til muskelhypertrofi.
+
+Ei forklaring på desse funna kan vere at begge treningsprotokollane oversteg det volumet som er nødvendig for å oppnå maksimale muskeltilpassingar innan den avgrensa treningsperioden. Det kan tenkjast at ein terskel for treningsvolum blei nådd med berre eitt sett, noko som samsvarer med tidlegare forsking som indikerer at moderat treningsvolum kan vere tilstrekkeleg for muskelvekst, spesielt hos utrente individ (@Grgic, 2018. @Schoenfeld, 2019).
+
+Begge gruppene opplevde altså betydelege styrkeforbetringar, utan skilnader mellom dei ulike treningsvoluma. Det korte tidsrommet for treningsintervensjonen kan ha påverka moglegheita til å påvise eventuelle forskjellar, sidan styrkeframgang ofte skjer raskt i starten av ein treningsprosess.
+
+
+
+## Konklusjon
+
+I konklusjon av denne studien, er både eitt sett og tre sett med styrketrening effektivt for å stimulere auke i muskelstyrke og muskalmasse etter ein treningsperiode, utan klare skilnader mellom dei voluma. dette tyder på at eit lpgare treningsvolum kan være tilstrekkeleg for å nær maksimal muskeltilpasningar innanfor ein avgrensa tidsperiode, spesielt hos relativt utrente individ. funna utfordrer den vanlege oppfatninga om at eit høgare treningvolum alltid gjev betre resultat, og understreker at nevromuskulære faktorar og tilstrekkeleg intensitet kan være viktigare en volum åleine for styrkeaukingar i dei tidlege fasane av trening. Dermed kan eitt sett per øving være eit effektivt og tidseffektivt alternativ for styrke- og muskelutveikling, særleg for utrente. Likevell er fortsatt mangel på forskning angående langtidseffektene av eit slikt lavt volum
+
+
+## Referanseliste:
+-	Burd NA, Holwerda AM, Selby KC, West DW, Staples AW, Cain NE, Cashaback JG, Potvin JR, Baker SK & Phillips SM (2010). Resistance exercise volume affects myofibrillar protein synthesis and anabolic signalling molecule phosphorylation in young men. J Physiol 588, 3119–3130.
+-	Grgic J, Schoenfeld BJ, Davies TB, Lazinica B, Krieger JW, Pedisic Z. Effect of Resistance Training Frequency on Gains in Muscular Strength: A Systematic Review and Meta-Analysis. Sports Med. 2018 May;48(5):1207-1220. doi: 10.1007/s40279-018-0872-x. PMID: 29470825.
+-	Kraemer WJ, Ratamess NA. Hormonal responses and adaptations to resistance exercise and training. Sports Med. 2005;35(4):339-61. doi: 10.2165/00007256-200535040-00004. PMID: 15831061.
+- Raastad, T., Paulsen, G., Refsnes, P., Rønnestad, B., Wisnes, A.(2010) Styrketrening - i teori og praksis.
+-	Ruple BA, Plotkin DL, Smith MA, Godwin JS, Sexton CL, McIntosh MC, Kontos NJ, Beausejour JP, Pagan JI, Rodriguez JP, Sheldon D, Knowles KS, Libardi CA, Young KC, Stock MS, Roberts MD. The effects of resistance training to near failure on strength, hypertrophy, and motor unit adaptations in previously trained adults. Physiol Rep. 2023 May;11(9):e15679. doi: 10.14814/phy2.15679. PMID: 37144554; PMCID: PMC10161210.
+-	Schoenfeld BJ, Ogborn D, Krieger JW. Dose-response relationship between weekly resistance training volume and increases in muscle mass: A systematic review and meta-analysis. J Sports Sci. 2017 Jun;35(11):1073-1082. doi: 10.1080/02640414.2016.1210197. Epub 2016 Jul 19. PMID: 27433992.
+-	Westcott WL. Resistance training is medicine: effects of strength training on health. Curr Sports Med Rep. 2012 Jul-Aug;11(4):209-16. doi: 10.1249/JSR.0b013e31825dabb8. PMID: 22777332.
+
+
+
+
+
