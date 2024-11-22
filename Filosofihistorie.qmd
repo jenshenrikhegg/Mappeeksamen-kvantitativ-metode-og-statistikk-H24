@@ -1,0 +1,48 @@
+---
+title: "Philosophy of science"
+format: html
+editor: visual
+echo: false
+---
+
+
+
+# 1	
+
+#### "Ifølge Hume er det umulig å rasjonelt begrunne bruken av induksjon. Hva er argumentet for denne konklusjonen? Gi en innvending mot ett av premissene i Humes argument og prøv å svare på denne innvendingen på Humes vegne."
+## 
+
+Den skottske skeptikeren David Hume, har stillt grunnlegjande men tankevekkande spørsmål gjennom sin levetid (1711-1776).  For eksempel om kvifor me eigentleg trur at framtida vil være som fortida. Altså berre fordi sola har stått opp kvar dag så lenge me kan hugse, kvifor skal me då tru at den gjer det i morgo også? Denne resoneringa kjem av at me baserer forventnigene våre på tidlegare erfaringer, noko som er logisk med tanke på at det er evolusjonært fordelaktig. Så sjølv om det verker logisk at sola skal stå opp i morgo, påpeiker Hume at det eigentlig ikkje er noko garanti for det og kan komme med motargument (Smaaland, 2001).
+
+Dette fenomenet kallar han for induksjon. Ein tendens me har til å trekke generelle konklusjoner basert på eit begrensa antall observasjoner, kalla emperisk fakta. Som å byggje eit hus på sand. Det kan sjå stabilt ut, men det vil alltid være ein risiko for at det rasar saman. Likevell kan ein komme langt med induksjon. For eksempel det at røyking er farleg for helsa, har no blitt almen kunnskap og akseptert på grunnlag av fleire år med induktiv forskning. Men det er også viktig å fastslå at ein induktiv konklusjon aldri kan være 100% sikker. Dette kjem av at den er bygga på empirisk materiale som ofte ikkje gir fulltelling. Ved induksjon kan ein følgeleg komme fram til ein større eller mindre sansynlegheit – verifisering. Resultata skal være evidensbasert, bygge på påliteleg fakta. Men ein kan aldri oppnå 100 prosent sikkerheit (Thurén, 2022, s. 55).
+
+For eksempel, dersom alle svaner ein nokon gong har sett har vore kvite, kan ein ikkje automatisk konkludere med at alle svaner er kvite. Dette illustrerer at sjølv om me har mykje erfaring som tyder ein ting, så kan det alltid dukke opp noko som utfordrer våre antakinger. Det er ikkje noko nødvendig samband mellom tidligare observasjoner og framtidige realiteter.
+Ein mogleg innvemding mot Hume sitt syn på å konstant tvile det me tek for gitt, kan føre til praktiske utfordringar og unødvendig skepsis. Som idrettstudent kan dette skape uro, då mykje av kunnskapen og praksisen innan treningsvitenskap og helse byggjer på erfaring og generaliseringar frå tidlegare obersvasjonar. Samstundes er det vanskeleg å opperer i kvardagen dersom ein heile tida skal stille spåørsmål ved grunnlaget for handlingane sine.
+På den andre sida kan ein argumentere for at Hume sitt fokus på tvil og kritisk tenking gjev tillit til eksisterand kunskap. Å være kritisk til etablert kunskap kan hjelpe til med å finne feil eller antakingar som ikkje held mål. Likevel kan ein spørre seg om denne balansen er nødvendig eller mulig.
+
+Alt dette betyr ikkje nødvendig vis at me skal slutte å stole på vitenskapen eller våre eigne erfaringer. Hume seier ikkje at me ikkje skal bruke induksjon, men heller at me må være klar over begrensningane. Me må være åpne for at våre antakninger kan være feil, og me må være villige til å revurdere dei dersom me møter ny og annerledes informasjon. Kanskje er det nettopp denne åpenheita som kan kjennetegne ein god forsker eller ein kritisk tenker. Ved å være bevisst på humes skeptiske perspektiv, kan me bli bedre til å tilnærme oss kunnskap og navigere oss i ein stadig skiftande verden.
+
+# 2.	
+
+#### "Gi en kort beskrivelse av falsifikasjonisme og si litt om hvorfor Popper var motivert til å utvikle denne teorien. Presenter så ett problem med teorien og vurder hvorvidt problemet kan løses."
+## 
+
+Karl popper, som er ein av 1900-talets mest inflytande filosofer, introduserte begrepet falsifikasjonisme. I staden for å fokusere på å bevise at ein teori er riktig (verifikasjon), hevda Popper at me heller bør prøve å bevise at ein teori er feil. Han meinte at ein vitenskapleg teori må være formulert slik at den kan motbevisast. Det betyr at det må være muleg å tenkje seg eit eksperiment eller ein observasjon som kunne vise at teorien er usann (Thronton, 2022).
+
+Popper var kritisk til teorier som passar alle mulege obersvasjoner. Slike teorier meinte han var for fleksibile, og dermed ikkje særleg verifiserbare. For eksempel, ein teori som hevder at «alle svaner er enten kvite eller ikkje-kvite» er teknisk sett sann, men gjev oss ingen ny innsikt. Popper argumenterte for at ein god vitenskapleg teori nesten må være risikabel. Dersom den overlever mange forsøk på å bli motbevist, vil det føre til ein styrka tillit til den. Men dersom me finn bevis som tyder på at teorien er fei, må me være villige til å forkaste den.
+
+Korleis fungerer falsifikasjonisme i praksis? Me ser for oss ein teori om at alle svaner er kvite. For å teste denne teorien må me då sjå etter svarte svaner. Dersom me finn ein einaste svart svane, har teorien blitt falsifisert. Dette betyr at teorien er usann, og at den enten må endrast for å inkludere nye observasjoner eller forkastast fullstendig som ein gyldig forklaring. Flasifikasjonismen krev altså at me heile tida er opne for å justere eller erstatte våre teorier basert på den nye kunnskapen somkan ta plass. Dette gjer vitenskapen meir sjølvkorrigerande. Dette sikrar at teoriane våre ikkje berre er baserte på observasjoner, men også at står i mot forsøk på å bli motbevist.
+
+Popper sitt syn på vitenskapen byggjer på prinsippet om falsifikasjon. Han hevda at vitenskapleg framgang avhegnger av vår vilje til å stille teorier som kan falsifiserast, istaden for å søke stadfestingar som søtter den. Dette fører til ei grnnlag for kritisk tenking, men kjem med utfordringer. For eksempel er det ikkje alltid like lett å avgjere om ein teori faktisk er falsifisert, eller om det berre er ein teknisk feil i observasjonene som fører til det feile resultatet. Kravet om falsifikasjon kan også verke litt snevert, sidan det kan være utfordrande for nokre forskningsfelt å å stille opp klare og testbare hypoteser. Dette gjev eit bilete av vitskap som meir avgrensa enn det faktisk er, og fører til spørsmål til korleis ein skal handtere meir komplekse problemstillingar som kan være vanskeleg å falsifisere direkte (Solberg, 2014, side 10).
+
+Eit anna problem med falsifikasjonismen er at den kan verke for streng og lite praktisk i møet med vitenskapen. Dersom ein skal følge falsifikasjonismen slavisk, vil dei fleste vitenskaplege teorier blir forkasta på grunn av små avvik eller feilslåtte prediksjoner. Gjennom historien har mange teorier vist seg å være nyttige, sjølv om dei etterkvart har blitt erstatta av meir presise forklaringer. For eksempel kan ein teori ikkje nødvendig vis være feil, men heller ein forenkla modell som gjeld innan visse grenser. Ei for stor tilnærming til falsifikasjon kan dermed hemme den naturlege utviklinga av vitenskapen ved å avvise teorier som kunne ha blitt vidareutvikla eller tilpassa i lys av ny kunnskap. Dette gjer at falsifikasjonismen, i praksis, må være balansert. 
+
+Falsifikasjonisme er eit verdifullt verktøy for å tenke kritisk om vitenskaplege teorier. Ved å forsøke å motbevise våre teorier, driv me forskninga framover og sikrer at vår kunnskap om veda er basert på solide bevis, sjølv om falsifikasjonisme ikkje er ein perfekt metode, er det eit viktig prinsipp som har forma vår forståing av vitenskapen.
+
+
+## Referanseliste:
+-	Solberg, M. (2014). Vitenskaplig utvikling og fremskritt. Uit Norges artiske universitetet. (side 9-11). article.pdf
+-	Smaaland, S. (2001). Tenkte tanker: David hume (1711-1776). tungt.no. Tenkte tanker: David Hume (1711-1776)
+-	Thronton, S. (2022). Stanford Encyclopedia of philosophy. Karl Popper (Stanford Encyclopedia of Philosophy)
+-	Thurén, T. (2022). Vitenskapsteori for nybegynnere. 3. utgave. Gyldendal
+
